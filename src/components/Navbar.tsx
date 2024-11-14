@@ -5,7 +5,7 @@
 import { useSession } from 'next-auth/react';
 import { usePathname } from 'next/navigation';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
-import { BoxArrowRight, Lock, PersonFill, PersonPlusFill } from 'react-bootstrap-icons';
+import { BoxArrowRight, Lock, PersonFill, PersonPlusFill, HouseDoorFill, Search } from 'react-bootstrap-icons';
 
 const NavBar: React.FC = () => {
   const { data: session } = useSession();
@@ -16,10 +16,24 @@ const NavBar: React.FC = () => {
   return (
     <Navbar bg="light" expand="lg">
       <Container>
-        <Navbar.Brand href="/">Next.js Application Template</Navbar.Brand>
+        <Navbar.Brand href="/" style={{ fontFamily: 'Arial, sans-serif' }}>
+          <HouseDoorFill style={{ marginRight: '8px' }} />
+          House Finders
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto justify-content-start">
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="me-auto justify-content-start">
+          <Nav.Link id="for-rent-nav" href="/for-rent" key="for-rent" active={pathName === '/for-rent'}>
+            For Rent
+          </Nav.Link>
+        </Nav>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Nav className="me-auto justify-content-end">
+          <Nav.Link id="search-nav" href="/search" key="search" active={pathName === '/search'}>
+            <Search style={{ marginRight: '4px' }} />
+            Search
+          </Nav.Link>
+        </Nav>
             {currentUser
               ? [
                   <Nav.Link id="add-stuff-nav" href="/add" key="add" active={pathName === '/add'}>
@@ -37,7 +51,7 @@ const NavBar: React.FC = () => {
             ) : (
               ''
             )}
-          </Nav>
+
           <Nav>
             {session ? (
               <NavDropdown id="login-dropdown" title={currentUser}>
@@ -63,7 +77,7 @@ const NavBar: React.FC = () => {
               </NavDropdown>
             )}
           </Nav>
-        </Navbar.Collapse>
+      </Navbar.Collapse>
       </Container>
     </Navbar>
   );
