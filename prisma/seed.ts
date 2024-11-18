@@ -1,4 +1,4 @@
-import { PrismaClient, Role, Condition } from '@prisma/client';
+import { PrismaClient, Role, Subrole, Condition } from '@prisma/client';
 import { hash } from 'bcrypt';
 import * as config from '../config/settings.development.json';
 
@@ -9,10 +9,12 @@ async function main() {
   const password = await hash('changeme', 10);
   config.defaultAccounts.forEach(async (account) => {
     let role: Role = 'USER';
+    let subrole: Subrole = 'RENTER';
     if (account.role === 'ADMIN') {
       role = 'ADMIN';
+      subrole = 'ADMIN';
     }
-    console.log(`  Creating user: ${account.email} with role: ${role}`);
+    console.log(`  Creating user: ${account.email} with role: ${role} and subrole: ${subrole}`);
     await prisma.user.upsert({
       where: { email: account.email },
       update: {},
@@ -20,6 +22,7 @@ async function main() {
         email: account.email,
         password,
         role,
+        subrole,
       },
     });
     // console.log(`  Created user: ${user.email} with role: ${user.role}`);

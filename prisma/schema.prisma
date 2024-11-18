@@ -22,11 +22,18 @@ enum Role {
   ADMIN
 }
 
+enum Subrole {
+  LANDLORD
+  RENTER
+  ADMIN
+}
+
 model User {
   id       Int    @id @default(autoincrement())
   email    String @unique
   password String
   role     Role   @default(USER)
+  subrole  Subrole @default(RENTER)
 }
 
 enum Condition {

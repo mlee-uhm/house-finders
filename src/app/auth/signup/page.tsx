@@ -6,11 +6,13 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { Card, Col, Container, Button, Form, Row } from 'react-bootstrap';
 import { createUser } from '@/lib/dbActions';
+import { Subrole } from '@prisma/client';
 
 type SignUpForm = {
   email: string;
   password: string;
   confirmPassword: string;
+  subrole: Subrole;
   // acceptTerms: boolean;
 };
 
@@ -25,6 +27,8 @@ const SignUp = () => {
     confirmPassword: Yup.string()
       .required('Confirm Password is required')
       .oneOf([Yup.ref('password'), ''], 'Confirm Password does not match'),
+    subrole: Yup.mixed<Subrole>()
+      .required('A choice is required'),
   });
 
   const {
@@ -79,6 +83,28 @@ const SignUp = () => {
                       className={`form-control ${errors.confirmPassword ? 'is-invalid' : ''}`}
                     />
                     <div className="invalid-feedback">{errors.confirmPassword?.message}</div>
+                  </Form.Group>
+                  <Form.Group className="form-group">
+                    <Form.Label>Will you be listing a property for rent?</Form.Label>
+                    <div className="d-flex flex-column">
+                      <div className="d-flex">
+                        <Form.Check
+                          type="radio"
+                          label="Yes"
+                          value="LANDLORD"
+                          {...register('subrole')}
+                          className={`form-check ${errors.subrole ? 'is-invalid' : ''} me-3`}
+                        />
+                        <Form.Check
+                          type="radio"
+                          label="No"
+                          value="RENTER"
+                          {...register('subrole')}
+                          className={`form-check ${errors.subrole ? 'is-invalid' : ''}`}
+                        />
+                      </div>
+                      <div className="invalid-feedback d-block">{errors.subrole?.message}</div>
+                    </div>
                   </Form.Group>
                   <Form.Group className="form-group py-3">
                     <Row>

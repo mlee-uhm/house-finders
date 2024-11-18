@@ -47,6 +47,7 @@ const AdminPage = async () => {
                 <tr>
                   <th>Email</th>
                   <th>Role</th>
+                  <th>Subrole</th>
                 </tr>
               </thead>
               <tbody>
@@ -54,6 +55,7 @@ const AdminPage = async () => {
                   <tr key={user.id}>
                     <td>{user.email}</td>
                     <td>{user.role}</td>
+                    <td>{user.subrole}</td>
                   </tr>
                 ))}
               </tbody>
