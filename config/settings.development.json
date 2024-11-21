@@ -5,8 +5,8 @@
     { "email": "deo@foo.com", "password": "changeme", "role": "USER", "subrole": "RENTER" },
     { "email": "ciara@foo.com", "password": "changeme", "role": "USER", "subrole": "RENTER" },
     { "email": "kyle@foo.com", "password": "changeme", "role": "ADMIN", "subrole": "RENTER" },
-    { "email": "michael@foo.com", "password": "changeme", "role": "ADMIN", "subrole": "LANDLORD" },
-    { "email": "trevell@foo.com", "password": "changeme", "role": "ADMIN", "subrole": "LANDLORD" }
+    { "email": "michael@foo.com", "password": "changeme", "role": "USER", "subrole": "LANDLORD" },
+    { "email": "trevell@foo.com", "password": "changeme", "role": "USER", "subrole": "LANDLORD" }
   ],
 
   "defaultData": [
