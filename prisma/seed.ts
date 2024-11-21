@@ -14,6 +14,9 @@ async function main() {
       role = 'ADMIN';
       subrole = 'ADMIN';
     }
+    if (account.subrole === 'LANDLORD') {
+      subrole = 'LANDLORD';
+    }
     console.log(`  Creating user: ${account.email} with role: ${role} and subrole: ${subrole}`);
     await prisma.user.upsert({
       where: { email: account.email },
