@@ -6,21 +6,15 @@
     { "email": "ciara@foo.com", "password": "changeme", "role": "USER", "subrole": "RENTER" },
     { "email": "kyle@foo.com", "password": "changeme", "role": "USER", "subrole": "LANDLORD" },
     { "email": "michael@foo.com", "password": "changeme", "role": "ADMIN", "subrole": "ADMIN" },
-    { "email": "trevell@foo.com", "password": "changeme", "role": "USER", "subrole": "LANDLORD" }
+    { "email": "trevell@foo.com", "password": "changeme", "role": "USER", "subrole": "LANDLORD" },
     { "email": "kyle@foo.com", "password": "changeme", "role": "ADMIN", "subrole": "RENTER" },
     { "email": "michael@foo.com", "password": "changeme", "role": "USER", "subrole": "LANDLORD" },
     { "email": "trevell@foo.com", "password": "changeme", "role": "USER", "subrole": "LANDLORD" }
   ],
 
   "defaultData": [
-    { "name": "Basket", "quantity": 3, "owner": "john@foo.com", "condition": "excellent" },
-    { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
-    { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
-    { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" },
-    { "name": "Basket", "quantity": 3, "owner": "deo@foo.com", "condition": "excellent" },
-    { "name": "Bicycle", "quantity": 2, "owner": "ciara@foo.com", "condition": "poor" },
-    { "name": "Banana", "quantity": 2, "owner": "kyle@foo.com", "condition": "good" },
-    { "name": "Boogie Board", "quantity": 2, "owner": "michael@foo.com", "condition": "excellent" },
-    { "name": "Boogie Board", "quantity": 2, "owner": "trevell@foo.com", "condition": "excellent" }
+    { "address": "1234 Elm St. Springfield HI USA, 62701", "price": 100000, "condition": "poor", "bedrooms": 3, "bathrooms": 2, "sqft": "300", "landlord": "michael@foo.com"},
+    { "address": "5678 Oak St. Springfield HI USA, 62702", "price": 65000, "condition": "good", "bedrooms": 1, "bathrooms": 2, "sqft": "150", "landlord": "kyle@foo.com"},
+    { "address": "2345 Elk St. Springfield HI USA, 62703", "price": 80000, "condition": "poor", "bedrooms": 2, "bathrooms": 2, "sqft": "300", "landlord": "trevell@foo.com"}
   ]
 }

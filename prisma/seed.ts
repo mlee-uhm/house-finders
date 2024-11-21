@@ -39,15 +39,18 @@ async function main() {
     } else {
       condition = 'fair';
     }
-    console.log(`  Adding stuff: ${data.name} (${data.owner})`);
-    await prisma.stuff.upsert({
+    console.log(`  Adding stuff: ${data.address} (${data.landlord})`);
+    await prisma.property.upsert({
       where: { id: index + 1 },
       update: {},
       create: {
-        name: data.name,
-        quantity: data.quantity,
-        owner: data.owner,
+        address: data.address,
+        price: data.price,
         condition,
+        bedrooms: data.bedrooms,
+        bathrooms: data.bathrooms,
+        sqft: data.sqft,
+        landlord: data.landlord,
       },
     });
   });
