@@ -11,8 +11,9 @@ import Image from 'next/image';
 const NavBar: React.FC = () => {
   const { data: session } = useSession();
   const currentUser = session?.user?.email;
-  const userWithRole = session?.user as { email: string; randomKey: string };
+  const userWithRole = session?.user as { email: string; randomKey: string; /* subrole: string */ };
   const role = userWithRole?.randomKey;
+  // const subrole = userWithRole?.subrole;
   const pathName = usePathname();
   return (
     <Navbar
@@ -50,19 +51,41 @@ const NavBar: React.FC = () => {
             Search
           </Nav.Link>
         </Nav>
-            {currentUser
-              ? [
-                  <Nav.Link id="add-stuff-nav" href="/add" key="add" active={pathName === '/add'}>
-                    Add Stuff
-                  </Nav.Link>,
-                  <Nav.Link id="list-stuff-nav" href="/list" key="list" active={pathName === '/list'}>
-                    List Stuff
-                  </Nav.Link>,
-                ]
-              : ''}
             {currentUser && role === 'ADMIN' ? (
-              <Nav.Link id="admin-stuff-nav" href="/admin" key="admin" active={pathName === '/admin'}>
-                Admin
+              [
+                <Nav.Link
+                  id="add-stuff-nav"
+                  href="/add"
+                  key="add"
+                  active={pathName === '/add'}
+                  style={{ marginRight: '15px' }}
+                >
+                AddProperties
+                </Nav.Link>,
+              ]
+            ) : ''}
+            {currentUser ? (
+              [
+                <Nav.Link
+                  id="list-stuff-nav"
+                  href="/list"
+                  key="list"
+                  active={pathName === '/list'}
+                  style={{ marginRight: '15px' }}
+                >
+                SeeProperties
+                </Nav.Link>,
+            ]
+          ) : ''}
+            {currentUser && role === 'ADMIN' ? (
+              <Nav.Link
+                id="admin-stuff-nav"
+                href="/admin"
+                key="admin"
+                active={pathName === '/admin'}
+                style={{ marginRight: '15px' }}
+              >
+              Admin
               </Nav.Link>
             ) : (
               ''

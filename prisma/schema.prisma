@@ -43,10 +43,13 @@ enum Condition {
   poor
 }
 
-model Stuff {
+model Property {
   id        Int       @id @default(autoincrement())
-  name      String
-  quantity  Int
+  address   String
+  price     Float
   condition Condition
-  owner     String
+  bedrooms  Int
+  bathrooms Int
+  sqft      String
+  landlord  String
 }
