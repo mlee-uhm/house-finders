@@ -8,27 +8,27 @@ import { prisma } from './prisma';
  * Adds a new stuff to the database.
  * @param stuff, an object with the following properties: name, quantity, owner, condition.
  */
-// export async function addStuff(stuff: { name: string; quantity: number; owner: string; condition: string }) {
-//   // console.log(`addStuff data: ${JSON.stringify(stuff, null, 2)}`);
-//   let condition: Condition = 'good';
-//   if (stuff.condition === 'poor') {
-//     condition = 'poor';
-//   } else if (stuff.condition === 'excellent') {
-//     condition = 'excellent';
-//   } else {
-//     condition = 'fair';
-//   }
-//   await prisma.stuff.create({
-//     data: {
-//       name: stuff.name,
-//       quantity: stuff.quantity,
-//       owner: stuff.owner,
-//       condition,
-//     },
-//   });
-//   // After adding, redirect to the list page
-//   redirect('/list');
-// }
+export async function addStuff(stuff: { name: string; quantity: number; owner: string; condition: string }) {
+  // console.log(`addStuff data: ${JSON.stringify(stuff, null, 2)}`);
+  let condition: Condition = 'good';
+  if (stuff.condition === 'poor') {
+    condition = 'poor';
+  } else if (stuff.condition === 'excellent') {
+    condition = 'excellent';
+  } else {
+    condition = 'fair';
+  }
+  await prisma.stuff.create({
+    data: {
+      name: stuff.name,
+      quantity: stuff.quantity,
+      owner: stuff.owner,
+      condition,
+    },
+  });
+  // After adding, redirect to the list page
+  redirect('/list');
+}
 
 /**
  * Adds a new property to the database.
@@ -41,7 +41,7 @@ export async function addProperty(property: {
   condition: string;
   bedrooms: number;
   bathrooms: number;
-  sqft: number;
+  sqft: string;
   landlord: string;
 }) {
   let condition: Condition = 'good';
