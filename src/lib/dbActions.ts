@@ -1,6 +1,6 @@
 'use server';
 
-import { Condition, Subrole, Stuff } from '@prisma/client';
+import { Condition, Subrole, Stuff, Property } from '@prisma/client';
 import { hash } from 'bcrypt';
 import { redirect } from 'next/navigation';
 import { prisma } from './prisma';
@@ -41,7 +41,7 @@ export async function addProperty(property: {
   condition: string;
   bedrooms: number;
   bathrooms: number;
-  sqft: string;
+  sqft: number;
   landlord: string;
 }) {
   let condition: Condition = 'good';
@@ -83,6 +83,21 @@ export async function editStuff(stuff: Stuff) {
   });
   // After updating, redirect to the list page
   redirect('/list');
+}
+
+export async function editProperty(property: Property) {
+  await prisma.property.update({
+    where: { id: property.id },
+    data: {
+      address: property.address,
+      price: property.price,
+      condition: property.condition,
+      bedrooms: property.bedrooms,
+      bathrooms: property.bathrooms,
+      sqft: property.sqft,
+      landlord: property.landlord,
+    },
+  });
 }
 
 /**

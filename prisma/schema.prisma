@@ -50,14 +50,14 @@ model Property {
   condition Condition
   bedrooms  Int
   bathrooms Int
-  sqft      String
+  sqft      Int
   landlord  String
 }
 
 model Stuff {
-  id    Int    @id @default(autoincrement())
-  name  String
-  quantity Int
+  id        Int    @id @default(autoincrement())
+  name      String
+  quantity  Int
   condition Condition
-  owner String
+  owner     String
 }
