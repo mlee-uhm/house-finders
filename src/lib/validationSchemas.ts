@@ -30,7 +30,7 @@ export const AddPropertySchema = Yup.object({
   condition: Yup.string().oneOf(['excellent', 'good', 'fair', 'poor']).required(),
   bedrooms: Yup.number().positive().required(),
   bathrooms: Yup.number().positive().required(),
-  sqft: Yup.string().required(),
+  sqft: Yup.number().positive().required(),
   landlord: Yup.string().required(),
 });
 
