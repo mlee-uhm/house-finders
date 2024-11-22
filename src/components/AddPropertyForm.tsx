@@ -117,7 +117,7 @@ const AddPropertyForm: React.FC = () => {
                     <Form.Group>
                       <Form.Label>Square Feet</Form.Label>
                       <input
-                        type="text"
+                        type="number"
                         {...register('sqft')}
                         className={`form-control ${errors.sqft ? 'is-invalid' : ''}`}
                       />
