@@ -1,6 +1,6 @@
 'use server';
 
-import { Condition, Subrole } from '@prisma/client';
+import { Condition, Subrole, Stuff } from '@prisma/client';
 import { hash } from 'bcrypt';
 import { redirect } from 'next/navigation';
 import { prisma } from './prisma';
@@ -70,20 +70,20 @@ export async function addProperty(property: {
  * Edits an existing stuff in the database.
  * @param stuff, an object with the following properties: id, name, quantity, owner, condition.
  */
-// export async function editStuff(stuff: Stuff) {
-//   // console.log(`editStuff data: ${JSON.stringify(stuff, null, 2)}`);
-//   await prisma.stuff.update({
-//     where: { id: stuff.id },
-//     data: {
-//       name: stuff.name,
-//       quantity: stuff.quantity,
-//       owner: stuff.owner,
-//       condition: stuff.condition,
-//     },
-//   });
-//   // After updating, redirect to the list page
-//   redirect('/list');
-// }
+export async function editStuff(stuff: Stuff) {
+  // console.log(`editStuff data: ${JSON.stringify(stuff, null, 2)}`);
+  await prisma.stuff.update({
+    where: { id: stuff.id },
+    data: {
+      name: stuff.name,
+      quantity: stuff.quantity,
+      owner: stuff.owner,
+      condition: stuff.condition,
+    },
+  });
+  // After updating, redirect to the list page
+  redirect('/list');
+}
 
 /**
  * Deletes an existing stuff from the database.
