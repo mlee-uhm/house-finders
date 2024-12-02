@@ -50,7 +50,7 @@ model Property {
   condition Condition
   bedrooms  Int
   bathrooms Int
-  sqft      Int
+  sqft      String
   landlord  String
 }
 
