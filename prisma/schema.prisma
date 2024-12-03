@@ -17,7 +17,7 @@ model User {
 
 model Property {
   id        Int       @id @default(autoincrement())
-  address   String
+  address   String    @unique
   price     Float
   condition Condition
   bedrooms  Int

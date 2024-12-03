@@ -24,7 +24,7 @@ export interface User {
 }
 
 export const AddPropertySchema = Yup.object({
-  id: Yup.number().required(),
+  // id: Yup.number().required(),
   address: Yup.string().required(),
   price: Yup.number().positive().required(),
   condition: Yup.string().oneOf(['excellent', 'good', 'fair', 'poor']).required(),

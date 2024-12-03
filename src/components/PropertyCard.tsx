@@ -14,6 +14,9 @@ const PropertyCard = ({ property }: { property: Property }) => (
       <Card.Subtitle>
         {property.price}
       </Card.Subtitle>
+      <Card.Subtitle>
+        {property.id}
+      </Card.Subtitle>
       <Card.Text>
         {property.bedrooms}
         bedrooms,

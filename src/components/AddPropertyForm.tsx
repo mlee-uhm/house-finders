@@ -10,17 +10,17 @@ import { addProperty } from '@/lib/dbActions';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import { AddPropertySchema } from '@/lib/validationSchemas';
 
-const onSubmit = async (data: {
+const onSubmit = (currentUser: string) => async (data: {
   address: string;
   price: number;
   condition: string;
   bedrooms: number;
   bathrooms: number;
   sqft: number;
-  landlord: string;
 }) => {
-  // console.log(`onSubmit data: ${JSON.stringify(data, null, 2)}`);
-  await addProperty(data);
+  const propertyData = { ...data, landlord: currentUser };
+  // console.log(`onSubmit data: ${JSON.stringify(propertyData, null, 2)}`);
+  await addProperty(propertyData);
   swal('Success', 'Your item has been added', 'success', {
     timer: 2000,
   });
@@ -54,7 +54,7 @@ const AddPropertyForm: React.FC = () => {
           </Col>
           <Card>
             <Card.Body>
-              <Form onSubmit={handleSubmit(onSubmit)}>
+              <Form onSubmit={handleSubmit(onSubmit(currentUser))}>
                 <Row>
                   <Col>
                     <Form.Group>

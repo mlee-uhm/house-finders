@@ -15,7 +15,7 @@ const NavBar: React.FC = () => {
   const role = userWithRole?.randomKey;
   const subrole = userWithRole?.subrole;
   const pathName = usePathname();
-  console.log('Subrole:', subrole);
+  // console.log('Subrole:', subrole);
   return (
     <Navbar
       bg="light"
