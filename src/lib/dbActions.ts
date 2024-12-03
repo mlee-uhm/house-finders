@@ -98,6 +98,8 @@ export async function editProperty(property: Property) {
       landlord: property.landlord,
     },
   });
+  // After updating, redirect to the list page
+  redirect('/list');
 }
 
 /**
