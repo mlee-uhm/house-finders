@@ -3,11 +3,12 @@
 import { Property } from '@prisma/client';
 import Link from 'next/link';
 import { Card, ListGroup } from 'react-bootstrap';
+import placeholder from '../../public/placeholder.png';
 
 /* Renders a single Property. See list/page.tsx. */
 const PropertyCard = ({ property }: { property: Property }) => (
-  <Card style={{ width: '20rem' }}>
-    <Card.Img src="./background.jpg" variant="top" height={180} />
+  <Card border="info" style={{ width: '20rem' }}>
+    <Card.Img src={placeholder.src} variant="top" height={180} />
     <Card.Body>
       <Card.Title>{property.address}</Card.Title>
       <Card.Subtitle>
