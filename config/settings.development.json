@@ -2,14 +2,8 @@
   "defaultAccounts": [
     { "email": "admin@foo.com", "password": "changeme", "role": "ADMIN", "subrole": "ADMIN" },
     { "email": "john@foo.com", "password": "changeme", "role": "USER", "subrole": "RENTER" },
-    { "email": "deo@foo.com", "password": "changeme", "role": "ADMIN", "subrole": "ADMIN" },
-    { "email": "ciara@foo.com", "password": "changeme", "role": "USER", "subrole": "RENTER" },
-    { "email": "kyle@foo.com", "password": "changeme", "role": "USER", "subrole": "LANDLORD" },
-    { "email": "michael@foo.com", "password": "changeme", "role": "ADMIN", "subrole": "ADMIN" },
-    { "email": "trevell@foo.com", "password": "changeme", "role": "USER", "subrole": "LANDLORD" },
-    { "email": "kyle@foo.com", "password": "changeme", "role": "ADMIN", "subrole": "RENTER" },
-    { "email": "michael@foo.com", "password": "changeme", "role": "USER", "subrole": "LANDLORD" },
-    { "email": "trevell@foo.com", "password": "changeme", "role": "USER", "subrole": "LANDLORD" }
+    { "email": "landlord@foo.com", "password": "changeme", "role": "USER", "subrole": "LANDLORD" },
+    { "email": "renter@foo.com", "password": "changeme", "role": "USER", "subrole": "RENTER" }
   ],
 
   "defaultData": [
