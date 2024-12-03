@@ -49,7 +49,7 @@ async function main() {
         condition,
         bedrooms: data.bedrooms,
         bathrooms: data.bathrooms,
-        sqft: data.sqft.toString(),
+        sqft: data.sqft,
         landlord: data.landlord,
       },
     });
