@@ -3,7 +3,7 @@
 import { Property } from '@prisma/client';
 import Link from 'next/link';
 import { Card, ListGroup } from 'react-bootstrap';
-import placeholder from '@/public/placeholder.png';
+import placeholder from '../../public/placeholder.png';
 
 /* Renders a single Property. See list/page.tsx. */
 const PropertyCard = ({ property }: { property: Property }) => (
