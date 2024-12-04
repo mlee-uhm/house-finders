@@ -25,7 +25,7 @@ const ListProperties = async () => {
   });
 
   return (
-    <main>
+    <div>
       <Container id="list" fluid className="py-3">
         <Container>
           <Row>
@@ -42,7 +42,7 @@ const ListProperties = async () => {
           </Row>
         </Container>
       </Container>
-    </main>
+    </div>
   );
 };
 
