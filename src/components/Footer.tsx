@@ -7,7 +7,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 const Footer = () => (
   <footer
     className="bg-light-brown text-dark py-4 mt-auto"
-    style={{ height: 'auto', backgroundColor: 'rgb(194, 178, 128)' }} // Light brown color
+    style={{ height: 'auto', backgroundColor: 'rgb(194, 178, 128)' }} // Light browncolor
   >
     <div className="container text-center">
       {/* Key Features Section */}
