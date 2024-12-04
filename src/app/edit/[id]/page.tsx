@@ -5,7 +5,10 @@ import authOptions from '@/lib/authOptions';
 import { loggedInProtectedPage } from '@/lib/page-protection';
 import { prisma } from '@/lib/prisma';
 import EditPropertyForm from '@/components/EditPropertyForm';
+// import { classValidatorResolver } from '@hookform/resolvers/class-validator';
+// import { Sliders } from 'react-bootstrap-icons';
 
+/*
 type TParam = Promise<{ slug: string[] }>;
 export default async function EditStuffPage({ params }: { params: TParam }) {
   // Protect the page, only logged in users can access it.
@@ -16,10 +19,12 @@ export default async function EditStuffPage({ params }: { params: TParam }) {
       // eslint-disable-next-line @typescript-eslint/comma-dangle
     } | null,
   );
+
+  console.log(params);
   const { slug } = await params;
-  const id = Number(slug[0]);
+  const id = 6; //Number(slug[1]);
   // const id = Number(Array.isArray(params?.id) ? params?.id[0] : params?.id);
-  // console.log(id);
+
   const property: Property | null = await prisma.property.findUnique({
     where: { id },
   });
@@ -27,10 +32,37 @@ export default async function EditStuffPage({ params }: { params: TParam }) {
   if (!property) {
     return notFound();
   }
-
+  console.log(slug);
   return (
-    <main>
+    <div>
       <EditPropertyForm property={property} />
-    </main>
+    </div>
+  );
+}
+
+*/
+
+export default async function EditStuffPage({ params }: { params: { id: string } }) {
+  const session = await getServerSession(authOptions);
+  loggedInProtectedPage(
+    session as {
+      user: { email: string; id: string; randomKey: string };
+      // eslint-disable-next-line @typescript-eslint/comma-dangle
+    } | null,
+  );
+
+  const id = Number(Array.isArray(params?.id) ? params?.id[0] : params?.id);
+  const property: Property | null = await prisma.property.findUnique({
+    where: { id },
+  });
+  // console.log(stuff);
+  if (!property) {
+    return notFound();
+  }
+  console.log(id);
+  return (
+    <div>
+      <EditPropertyForm property={property} />
+    </div>
   );
 }
