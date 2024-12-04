@@ -29,7 +29,7 @@ const Footer2 = () => (
       <hr className="border-white" />
       <div className="row">
         <div className="col-12 col-md-8">
-          <Image src="/HF_logo.png" alt="House Finders" width={100} height={50} className="footer-logo mb-3" />
+          <Image src="/HF_logo.png" alt="House Finders" width={80} height={68} className="footer-logo mb-3" />
           <p className="footer-text text-white">© 2024 HouseFinders.inc</p>
           <p className="footer-text text-white">
             All trademarks referenced herein are the properties of their respective owners.
@@ -44,10 +44,10 @@ const Footer2 = () => (
         </div>
         <div className="col-12 col-md-4 text-md-end">
           <div className="social-icons mb-3">
-            <a href="https://twitter.com" className="text-white"><Twitter /></a>
-            <a href="https://www.facebook.com" className="text-white"><Facebook /></a>
-            <a href="https://www.reddit.com" className="text-white"><Reddit /></a>
-            <a href="https://www.instagram.com" className="text-white"><Instagram /></a>
+            <a href="https://twitter.com" className="text-white"><Twitter size={20} color="white" /></a>
+            <a href="https://www.facebook.com" className="text-white"><Facebook size={20} color="white" /></a>
+            <a href="https://www.reddit.com" className="text-white"><Reddit size={20} color="white" /></a>
+            <a href="https://www.instagram.com" className="text-white"><Instagram size={20} color="white" /></a>
           </div>
         </div>
       </div>

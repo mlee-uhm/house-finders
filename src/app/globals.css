@@ -27,7 +27,7 @@ body {
   --bs-light-rgb: 194, 178, 128;
   --bs-dark-rgb: var(--nat-navbar-bg-rgb);
   box-sizing: border-box;
-  height: 115%;
+  height: 135%;
   padding: 0;
   margin: 0;
   background: fixed center url("/background.jpg");
@@ -75,7 +75,7 @@ h6 {
 }
 .language-select {
   color: #ffffff;
-  background-color: transparent;
+  background-color: white;
   border: 1px solid #ffffff;
   padding: 0.25rem 0.5rem;
 }
@@ -99,8 +99,4 @@ h6 {
   color: #ffffff;
   margin-left: 1rem;
   font-size: 1.2rem;
-}
-.rating-icons img {
-  height: 60px;
-  width: 50px;
 }

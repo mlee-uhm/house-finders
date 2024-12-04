@@ -41,14 +41,14 @@ const NavBar: React.FC = () => {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ms-auto" style={{ marginRight: '28px' }}>
           <Nav.Link id="for-rent-nav" href="/for-rent" key="for-rent" active={pathName === '/for-rent'}>
-          <HouseFill style={{ marginRight: '6px', marginBottom: '5px' }} />
+          <HouseFill className="ml-2" style={{ width: '1em', height: '1em' }} />
             For Rent
           </Nav.Link>
         </Nav>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Nav className="justify-content-center" style={{ marginRight: '30px' }}>
           <Nav.Link id="search-nav" href="/search" key="search" active={pathName === '/search'}>
-            <Search style={{ marginRight: '5px' }} />
+            <Search className="ml-2" style={{ width: '1em', height: '1em' }} />
             Search
           </Nav.Link>
         </Nav>
@@ -74,7 +74,7 @@ const NavBar: React.FC = () => {
                   active={pathName === '/list'}
                   style={{ marginRight: '15px' }}
                 >
-                See Properties
+                My Properties
                 </Nav.Link>,
             ]
           ) : ''}
@@ -107,11 +107,11 @@ const NavBar: React.FC = () => {
             ) : (
               <NavDropdown id="login-dropdown" title="Login">
                 <NavDropdown.Item id="login-dropdown-sign-in" href="/auth/signin">
-                  <PersonFill />
+                  <PersonFill className="ml-2" style={{ width: '1em', height: '1em' }} />
                   Sign in
                 </NavDropdown.Item>
                 <NavDropdown.Item id="login-dropdown-sign-up" href="/auth/signup">
-                  <PersonPlusFill />
+                  <PersonPlusFill className="ml-2" style={{ width: '1em', height: '1em' }} />
                   Sign up
                 </NavDropdown.Item>
               </NavDropdown>
