@@ -14,6 +14,7 @@ export const EditStuffSchema = Yup.object({
   condition: Yup.string().oneOf(['excellent', 'good', 'fair', 'poor']).required(),
   owner: Yup.string().required(),
 });
+
 export interface User {
   id: number;
   email: string;
@@ -23,6 +24,17 @@ export interface User {
 }
 
 export const AddPropertySchema = Yup.object({
+  // id: Yup.number().required(),
+  address: Yup.string().required(),
+  price: Yup.number().positive().required(),
+  condition: Yup.string().oneOf(['excellent', 'good', 'fair', 'poor']).required(),
+  bedrooms: Yup.number().positive().required(),
+  bathrooms: Yup.number().positive().required(),
+  sqft: Yup.number().positive().required(),
+  landlord: Yup.string().required(),
+});
+
+export const EditPropertySchema = Yup.object({
   id: Yup.number().required(),
   address: Yup.string().required(),
   price: Yup.number().positive().required(),

@@ -1,6 +1,6 @@
 'use server';
 
-import { Condition, Subrole } from '@prisma/client';
+import { Condition, Subrole, Stuff, Property } from '@prisma/client';
 import { hash } from 'bcrypt';
 import { redirect } from 'next/navigation';
 import { prisma } from './prisma';
@@ -8,27 +8,27 @@ import { prisma } from './prisma';
  * Adds a new stuff to the database.
  * @param stuff, an object with the following properties: name, quantity, owner, condition.
  */
-// export async function addStuff(stuff: { name: string; quantity: number; owner: string; condition: string }) {
-//   // console.log(`addStuff data: ${JSON.stringify(stuff, null, 2)}`);
-//   let condition: Condition = 'good';
-//   if (stuff.condition === 'poor') {
-//     condition = 'poor';
-//   } else if (stuff.condition === 'excellent') {
-//     condition = 'excellent';
-//   } else {
-//     condition = 'fair';
-//   }
-//   await prisma.stuff.create({
-//     data: {
-//       name: stuff.name,
-//       quantity: stuff.quantity,
-//       owner: stuff.owner,
-//       condition,
-//     },
-//   });
-//   // After adding, redirect to the list page
-//   redirect('/list');
-// }
+export async function addStuff(stuff: { name: string; quantity: number; owner: string; condition: string }) {
+  // console.log(`addStuff data: ${JSON.stringify(stuff, null, 2)}`);
+  let condition: Condition = 'good';
+  if (stuff.condition === 'poor') {
+    condition = 'poor';
+  } else if (stuff.condition === 'excellent') {
+    condition = 'excellent';
+  } else {
+    condition = 'fair';
+  }
+  await prisma.stuff.create({
+    data: {
+      name: stuff.name,
+      quantity: stuff.quantity,
+      owner: stuff.owner,
+      condition,
+    },
+  });
+  // After adding, redirect to the list page
+  redirect('/list');
+}
 
 /**
  * Adds a new property to the database.
@@ -70,20 +70,37 @@ export async function addProperty(property: {
  * Edits an existing stuff in the database.
  * @param stuff, an object with the following properties: id, name, quantity, owner, condition.
  */
-// export async function editStuff(stuff: Stuff) {
-//   // console.log(`editStuff data: ${JSON.stringify(stuff, null, 2)}`);
-//   await prisma.stuff.update({
-//     where: { id: stuff.id },
-//     data: {
-//       name: stuff.name,
-//       quantity: stuff.quantity,
-//       owner: stuff.owner,
-//       condition: stuff.condition,
-//     },
-//   });
-//   // After updating, redirect to the list page
-//   redirect('/list');
-// }
+export async function editStuff(stuff: Stuff) {
+  // console.log(`editStuff data: ${JSON.stringify(stuff, null, 2)}`);
+  await prisma.stuff.update({
+    where: { id: stuff.id },
+    data: {
+      name: stuff.name,
+      quantity: stuff.quantity,
+      owner: stuff.owner,
+      condition: stuff.condition,
+    },
+  });
+  // After updating, redirect to the list page
+  redirect('/list');
+}
+
+export async function editProperty(property: Property) {
+  await prisma.property.update({
+    where: { id: property.id },
+    data: {
+      address: property.address,
+      price: property.price,
+      condition: property.condition,
+      bedrooms: property.bedrooms,
+      bathrooms: property.bathrooms,
+      sqft: property.sqft,
+      landlord: property.landlord,
+    },
+  });
+  // After updating, redirect to the list page
+  redirect('/list');
+}
 
 /**
  * Deletes an existing stuff from the database.

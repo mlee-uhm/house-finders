@@ -1,66 +1,50 @@
 'use client';
 
-import { useSession } from 'next-auth/react';
 import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
 import swal from 'sweetalert';
-import { redirect } from 'next/navigation';
-import { addProperty } from '@/lib/dbActions';
-import LoadingSpinner from '@/components/LoadingSpinner';
-import { AddPropertySchema } from '@/lib/validationSchemas';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { Property } from '@prisma/client';
+import { EditPropertySchema } from '@/lib/validationSchemas';
+import { editProperty } from '@/lib/dbActions';
 
-const onSubmit = (currentUser: string) => async (data: {
-  address: string;
-  price: number;
-  condition: string;
-  bedrooms: number;
-  bathrooms: number;
-  sqft: number;
-}) => {
-  const propertyData = { ...data, landlord: currentUser };
-  // console.log(`onSubmit data: ${JSON.stringify(propertyData, null, 2)}`);
-  await addProperty(propertyData);
-  swal('Success', 'Your item has been added', 'success', {
+const onSubmit = async (data: Property) => {
+  // console.log(`onSubmit data: ${JSON.stringify(data, null, 2)}`);
+  await editProperty(data);
+  swal('Success', 'Your property has been updated', 'success', {
     timer: 2000,
   });
 };
 
-const AddPropertyForm: React.FC = () => {
-  const { data: session, status } = useSession();
-  // console.log('AddStuffForm', status, session);
-  const currentUser = session?.user?.email || '';
+const EditPropertyForm = ({ property }: { property: Property }) => {
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm({
-    resolver: yupResolver(AddPropertySchema),
+  } = useForm<Property>({
+    resolver: yupResolver(EditPropertySchema),
   });
-  if (status === 'loading') {
-    return <LoadingSpinner />;
-  }
-  if (status === 'unauthenticated') {
-    redirect('/auth/signin');
-  }
+  // console.log(stuff);
 
   return (
     <Container className="py-3">
       <Row className="justify-content-center">
         <Col xs={10}>
           <Col className="text-center">
-            <h2>Add Property</h2>
+            <h2>Edit Property</h2>
           </Col>
           <Card>
             <Card.Body>
-              <Form onSubmit={handleSubmit(onSubmit(currentUser))}>
+              <Form onSubmit={handleSubmit(onSubmit)}>
+                <input type="hidden" {...register('id')} value={property.id} />
                 <Row>
                   <Col>
                     <Form.Group>
                       <Form.Label>Address</Form.Label>
                       <input
                         type="text"
+                        defaultValue={property.address}
                         {...register('address')}
                         className={`form-control ${errors.address ? 'is-invalid' : ''}`}
                       />
@@ -76,6 +60,7 @@ const AddPropertyForm: React.FC = () => {
                         </div>
                         <input
                           type="number"
+                          defaultValue={property.price}
                           {...register('price')}
                           className={`form-control ${errors.price ? 'is-invalid' : ''}`}
                         />
@@ -90,6 +75,7 @@ const AddPropertyForm: React.FC = () => {
                       <Form.Label>Bedrooms</Form.Label>
                       <input
                         type="number"
+                        defaultValue={property.bedrooms}
                         {...register('bedrooms')}
                         className={`form-control ${errors.bedrooms ? 'is-invalid' : ''}`}
                         min={0}
@@ -103,6 +89,7 @@ const AddPropertyForm: React.FC = () => {
                       <Form.Label>Bathroom</Form.Label>
                       <input
                         type="number"
+                        defaultValue={property.bathrooms}
                         {...register('bathrooms')}
                         className={`form-control ${errors.bathrooms ? 'is-invalid' : ''}`}
                         min={0}
@@ -117,7 +104,8 @@ const AddPropertyForm: React.FC = () => {
                     <Form.Group>
                       <Form.Label>Square Feet</Form.Label>
                       <input
-                        type="number"
+                        type="text"
+                        defaultValue={property.sqft}
                         {...register('sqft')}
                         className={`form-control ${errors.sqft ? 'is-invalid' : ''}`}
                       />
@@ -129,6 +117,7 @@ const AddPropertyForm: React.FC = () => {
                       <Form.Label>Condition</Form.Label>
                       <select
                         {...register('condition')}
+                        defaultValue={property.condition}
                         className={`form-control ${errors.condition ? 'is-invalid' : ''}`}
                       >
                         <option value="excellent">Excellent</option>
@@ -140,7 +129,7 @@ const AddPropertyForm: React.FC = () => {
                     </Form.Group>
                   </Col>
                 </Row>
-                <input type="hidden" {...register('landlord')} value={currentUser} />
+                <input type="hidden" {...register('landlord')} value={property.landlord} />
                 <Form.Group className="form-group">
                   <Row className="pt-3">
                     <Col>
@@ -162,4 +151,4 @@ const AddPropertyForm: React.FC = () => {
   );
 };
 
-export default AddPropertyForm;
+export default EditPropertyForm;

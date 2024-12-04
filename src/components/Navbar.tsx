@@ -11,10 +11,11 @@ import Image from 'next/image';
 const NavBar: React.FC = () => {
   const { data: session } = useSession();
   const currentUser = session?.user?.email;
-  const userWithRole = session?.user as { email: string; randomKey: string; /* subrole: string */ };
+  const userWithRole = session?.user as { email: string; randomKey: string; subrole: string; };
   const role = userWithRole?.randomKey;
-  // const subrole = userWithRole?.subrole;
+  const subrole = userWithRole?.subrole;
   const pathName = usePathname();
+  // console.log('Subrole:', subrole);
   return (
     <Navbar
       bg="light"
@@ -51,7 +52,7 @@ const NavBar: React.FC = () => {
             Search
           </Nav.Link>
         </Nav>
-            {currentUser && role === 'ADMIN' ? (
+            {currentUser && subrole === 'LANDLORD' ? (
               [
                 <Nav.Link
                   id="add-stuff-nav"
@@ -60,7 +61,7 @@ const NavBar: React.FC = () => {
                   active={pathName === '/add'}
                   style={{ marginRight: '15px' }}
                 >
-                AddProperties
+                Add Properties
                 </Nav.Link>,
               ]
             ) : ''}
@@ -73,7 +74,7 @@ const NavBar: React.FC = () => {
                   active={pathName === '/list'}
                   style={{ marginRight: '15px' }}
                 >
-                SeeProperties
+                See Properties
                 </Nav.Link>,
             ]
           ) : ''}
