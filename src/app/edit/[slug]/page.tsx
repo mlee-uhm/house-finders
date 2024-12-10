@@ -21,7 +21,8 @@ export default async function EditStuffPage({ params }: { params: TParam }) {
 
   console.log(params);
   const { slug } = await params;
-  const id = Number(slug[1]);
+  const id = Number(slug[0]);
+  console.log(id);
   // const id = Number(Array.isArray(params?.id) ? params?.id[0] : params?.id);
 
   const property: Property | null = await prisma.property.findUnique({
