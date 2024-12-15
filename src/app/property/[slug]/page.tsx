@@ -4,67 +4,27 @@ import { Property } from '@prisma/client';
 import authOptions from '@/lib/authOptions';
 import { loggedInProtectedPage } from '@/lib/page-protection';
 import { prisma } from '@/lib/prisma';
-// import EditPropertyForm from '@/components/EditPropertyForm';
-import { Card, Col, Container, Row } from 'react-bootstrap';
-import Image from 'next/image';
-// import { errors } from '@playwright/test';
-// import { register } from 'module';
-// import { classValidatorResolver } from '@hookform/resolvers/class-validator';
-// import { Sliders } from 'react-bootstrap-icons';
+import { Container, Row, Col, Card, Image } from 'react-bootstrap';
 
-/*
-type TParam = Promise<{ slug: string[] }>;
-export default async function EditStuffPage({ params }: { params: TParam }) {
-  // Protect the page, only logged in users can access it.
+type TParam = { slug: string[] };
+export default async function PropertyPage({ params }: { params: TParam }) {
   const session = await getServerSession(authOptions);
-  const user = session?.user as { id: string; email?: string | null; name?: string | null; image?: string | null };
   loggedInProtectedPage(
     session as {
       user: { email: string; id: string; randomKey: string };
-      // eslint-disable-next-line @typescript-eslint/comma-dangle
     } | null,
   );
 
   console.log(params);
   const { slug } = await params;
-  const id = 6; //Number(slug[1]);
-  // const id = Number(Array.isArray(params?.id) ? params?.id[0] : params?.id);
-
+  const id = Number(slug);
   const property: Property | null = await prisma.property.findUnique({
     where: { id },
   });
-  // console.log(stuff);
   if (!property) {
     return notFound();
   }
   console.log(slug);
-  return (
-    <div>
-      <EditPropertyForm property={property} />
-    </div>
-  );
-}
-
-*/
-
-export default async function PropertyPage({ params }: { params: { id: string } }) {
-  const session = await getServerSession(authOptions);
-  // const user = session?.user as { id: string; email?: string | null; name?: string | null; image?: string | null };
-  loggedInProtectedPage(
-    session as {
-      user: { email: string; id: string; randomKey: string };
-      // eslint-disable-next-line @typescript-eslint/comma-dangle
-    } | null,
-  );
-
-  const id = Number(params.id);
-  const property: Property | null = await prisma.property.findUnique({
-    where: { id },
-  });
-  if (!property) {
-    return notFound();
-  }
-  console.log(id);
   const landlord = await prisma.user.findUnique({
     where: { email: property.landlord },
   });

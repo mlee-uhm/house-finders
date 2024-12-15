@@ -1,9 +1,12 @@
 'use client';
 
 import React, { useState } from 'react';
+import PropertyCard from '@/components/PropertyCard';
 import defaultData from '../../../config/settings.development.json';
 
-export default function Page() {
+type Condition = 'new' | 'good' | 'fair' | 'poor'; // Define the Condition type
+
+const Search: React.FC = () => {
   const [filters, setFilters] = useState({
     condition: '',
     price: 2000,
@@ -11,7 +14,7 @@ export default function Page() {
     bathrooms: 5,
     sqft: 1000,
   });
-
+    defaultData.defaultData.map((data, index) => ({ ...data, id: index, condition: data.condition as Condition })),
   const [filteredData, setFilteredData] = useState(
     defaultData.defaultData.map((data, index) => ({ ...data, id: index })),
   );
@@ -136,33 +139,13 @@ export default function Page() {
       <h2>Search Results</h2>
       {filteredData.length > 0 ? (
         filteredData.map((data) => (
-          <div key={data.id} className="property">
-            <h3>{data.address}</h3>
-            <p>
-              Price: $
-              {data.price}
-            </p>
-            <p>
-              Condition:
-              {data.condition}
-            </p>
-            <p>
-              Bedrooms:
-              {data.bedrooms}
-            </p>
-            <p>
-              Bathrooms:
-              {data.bathrooms}
-            </p>
-            <p>
-              Sqft:
-              {data.sqft}
-            </p>
-          </div>
+          <PropertyCard key={data.id} property={data} />
         ))
       ) : (
         <p>No properties match the search criteria.</p>
       )}
     </div>
   );
-}
+};
+
+export default Search;
