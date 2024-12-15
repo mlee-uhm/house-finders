@@ -47,8 +47,9 @@ async function main() {
         condition,
         bedrooms: data.bedrooms,
         bathrooms: data.bathrooms,
-        landlord: data.landlord,
         sqft: data.sqft,
+        landlord: data.landlord,
+        images: data.images,
       },
     });
   });

@@ -7,9 +7,10 @@
   ],
 
   "defaultData": [
-    { "address": "1234 Elm St. Springfield HI USA, 62701", "price": 1000, "condition": "AVAILABLE", "bedrooms": 3, "bathrooms": 2, "sqft": 300, "landlord": "landlord@foo.com"},
-    { "address": "1435 Elm St. Springfield HI USA, 62701", "price": 1200, "condition": "UNAVAILABLE", "bedrooms": 2, "bathrooms": 1, "sqft": 200, "landlord": "landlord@foo.com"},
-    { "address": "5678 Oak St. Springfield HI USA, 62702", "price": 1350, "condition": "PENDING", "bedrooms": 1, "bathrooms": 2, "sqft": 150, "landlord": "landlord@foo.com"},
-    { "address": "2345 Elk St. Springfield HI USA, 62703", "price": 1600, "condition": "AVAILABLE", "bedrooms": 2, "bathrooms": 2, "sqft": 300, "landlord": "landlord@foo.com"}
+    { "address": "1234 Elm St. Springfield HI USA, 62701", "price": 1000, "condition": "UNAVAILABLE", "bedrooms": 3, "bathrooms": 2, "sqft": 300, "landlord": "landlord@foo.com", "images": ["random1.jpg", "random2.jpg"]},
+    { "address": "1435 Elm St. Springfield HI USA, 62701", "price": 3000, "condition": "UNAVAILABLE", "bedrooms": 2, "bathrooms": 1, "sqft": 200, "landlord": "landlord@foo.com", "images": ["random1.jpg", "random2.jpg"]},
+    { "address": "5678 Oak St. Springfield HI USA, 62702", "price": 650, "condition": "PENDING", "bedrooms": 1, "bathrooms": 2, "sqft": 150, "landlord": "landlord@foo.com", "images": ["random1.jpg", "random2.jpg"]},
+    { "address": "2345 Elk St. Springfield HI USA, 62703", "price": 800, "condition": "AVAILABLE", "bedrooms": 2, "bathrooms": 2, "sqft": 300, "landlord": "landlord@foo.com", "images": ["random1.jpg", "random2.jpg"]}
   ]
 }
+
