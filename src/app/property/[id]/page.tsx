@@ -120,11 +120,14 @@ export default async function PropertyPage({ params }: { params: { id: string } 
               backgroundColor: 'transparent',
               borderWidth: '2px',
               borderColor: 'green',
+              textAlign: 'center',
             }}
           >
-            <Link href={`/profile/${landlord.id}`}>
-              <Button variant="primary" style={{ backgroundColor: 'green' }}>Contact Information</Button>
-            </Link>
+            <div style={{ backgroundColor: 'green', color: 'white', padding: '10px', borderRadius: '5px' }}>
+              Contact Information:
+              {' '}
+              {landlord.email}
+            </div>
           </Card>
         </Col>
       </Row>

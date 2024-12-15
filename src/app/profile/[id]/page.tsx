@@ -75,7 +75,7 @@ export default async function ProfilePage({ params }: { params: { id: string } }
       <Row className="justify-content-center p-3">
         <Col>
           <Image
-            src="/House1FullView.jpg"
+            src="/profile-placeholder.jpg"
             alt="Full view of the house"
             width={500}
             height={300}
@@ -83,51 +83,18 @@ export default async function ProfilePage({ params }: { params: { id: string } }
           />
         </Col>
         <Col>
-          <Row><h2 className="text-center">{profile.email}</h2></Row>
+          <Row>
+            <h2 className="text-center">
+              Email:
+              {' '}
+              {profile.email}
+            </h2>
+          </Row>
+          <Row />
         </Col>
       </Row>
       <Row className="justify-content-center">
-        {/* <Col className="text-center">
-          <h2 style={{ color: 'green' }}>
-            $
-            {id.price}
-            /month
-          </h2>
-          <h4>{property.address}</h4>
-        </Col>
-        <Col className="text-center">
-          <Container>
-            <Row>
-              <Col>
-                <h2><strong style={{ color: 'green' }}>{property.bedrooms}</strong></h2>
-                beds
-              </Col>
-              <Col>
-                <h2><strong style={{ color: 'green' }}>{property.bathrooms}</strong></h2>
-                baths
-              </Col>
-              <Col>
-                <h2><strong style={{ color: 'green' }}>{property.sqft}</strong></h2>
-                sqft
-              </Col>
-            </Row>
-          </Container>
-        </Col>
-        <Col>
-          <Card
-            className="p-2 rounded"
-            style={{
-              width: '50%',
-              backgroundColor: 'transparent',
-              borderWidth: '2px',
-              borderColor: 'green',
-            }}
-          >
-            <Link href={`/profile/${encodeURIComponent(landlord.id)}`} passHref>
-              <Button variant="primary" style={{ backgroundColor: 'green' }}>Contact Information</Button>
-            </Link>
-          </Card>
-        </Col> */}
+        {/*  */}
       </Row>
     </Container>
   );
