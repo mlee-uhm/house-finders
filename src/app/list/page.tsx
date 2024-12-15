@@ -42,7 +42,7 @@ const ListProperties = async () => {
                   Your Properties
                 </strong>
               </h2>
-              <Row xs={1} md={2} lg={3} className="g-4">
+              <Row key="property-row" xs={1} md={2} lg={3} className="g-4">
                 {properties.map((property: Property) => (
                   <Col>
                     <PropertyCard key={property.id} property={property} />
