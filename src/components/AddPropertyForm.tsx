@@ -131,10 +131,9 @@ const AddPropertyForm: React.FC = () => {
                         {...register('condition')}
                         className={`form-control ${errors.condition ? 'is-invalid' : ''}`}
                       >
-                        <option value="excellent">Excellent</option>
-                        <option value="good">Good</option>
-                        <option value="fair">Fair</option>
-                        <option value="poor">Poor</option>
+                        <option value="AVAILABLE">AVAILABLE</option>
+                        <option value="PENDING">PENDING</option>
+                        <option value="UNAVAILABLE">UNAVAILABLE</option>
                       </select>
                       <div className="invalid-feedback">{errors.condition?.message}</div>
                     </Form.Group>

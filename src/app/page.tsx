@@ -21,7 +21,7 @@ const Home = () => {
   const houses = [
     {
       image: '/House1FullView.jpg',
-      badge: 'Moana',
+      badge: 'Manoa',
       title: 'Beautiful House 1',
       id: 'house1',
     },

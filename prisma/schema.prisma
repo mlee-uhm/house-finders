@@ -46,8 +46,7 @@ enum Subrole {
 }
 
 enum Condition {
-  excellent
-  good
-  fair
-  poor
+  AVAILABLE
+  PENDING
+  UNAVAILABLE
 }
