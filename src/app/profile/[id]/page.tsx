@@ -48,7 +48,7 @@ export default async function EditStuffPage({ params }: { params: TParam }) {
 
 */
 
-export default async function PropertyPage({ params }: { params: { id: string } }) {
+export default async function ProfilePage({ params }: { params: { id: string } }) {
   const session = await getServerSession(authOptions);
   // const user = session?.user as { id: string; email?: string | null; name?: string | null; image?: string | null };
   loggedInProtectedPage(
@@ -58,38 +58,39 @@ export default async function PropertyPage({ params }: { params: { id: string } 
     } | null,
   );
 
-  const id = Number(params.id);
-  const property: Property | null = await prisma.property.findUnique({
+  const awaitedParams = await params;
+  console.log('Received params:', awaitedParams); // Add this line to log params
+  const id = Number(Array.isArray(awaitedParams?.id) ? awaitedParams?.id[0] : awaitedParams?.id);
+  console.log('Parsed id:', id); // Add this line to log the parsed id
+
+  const profile = await prisma.user.findUnique({
     where: { id },
   });
-  if (!property) {
+  if (!profile) {
     return notFound();
   }
-  console.log(id);
-  const landlord = await prisma.user.findUnique({
-    where: { email: property.landlord },
-  });
-  if (!landlord) {
-    return notFound();
-  }
-  console.log(`Landlord ID: ${landlord.id}`);
 
   return (
     <Container className="py-3">
       <Row className="justify-content-center p-3">
-        <Image
-          src="/House1FullView.jpg"
-          alt="Full view of the house"
-          width={500}
-          height={300}
-          style={{ width: '50%', height: 'auto' }}
-        />
+        <Col>
+          <Image
+            src="/House1FullView.jpg"
+            alt="Full view of the house"
+            width={500}
+            height={300}
+            style={{ width: '50%', height: 'auto' }}
+          />
+        </Col>
+        <Col>
+          <Row><h2 className="text-center">{profile.email}</h2></Row>
+        </Col>
       </Row>
       <Row className="justify-content-center">
-        <Col className="text-center">
+        {/* <Col className="text-center">
           <h2 style={{ color: 'green' }}>
             $
-            {property.price}
+            {id.price}
             /month
           </h2>
           <h4>{property.address}</h4>
@@ -122,11 +123,11 @@ export default async function PropertyPage({ params }: { params: { id: string } 
               borderColor: 'green',
             }}
           >
-            <Link href={`/profile/${landlord.id}`}>
+            <Link href={`/profile/${encodeURIComponent(landlord.id)}`} passHref>
               <Button variant="primary" style={{ backgroundColor: 'green' }}>Contact Information</Button>
             </Link>
           </Card>
-        </Col>
+        </Col> */}
       </Row>
     </Container>
   );
