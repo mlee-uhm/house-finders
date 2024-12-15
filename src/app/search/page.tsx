@@ -1,22 +1,21 @@
 'use client';
 
 import React, { useState } from 'react';
+import { Condition } from '@prisma/client';
 import PropertyCard from '@/components/PropertyCard';
 import defaultData from '../../../config/settings.development.json';
 
-type Condition = 'new' | 'good' | 'fair' | 'poor'; // Define the Condition type
-
 const Search: React.FC = () => {
   const [filters, setFilters] = useState({
-    condition: '',
+    condition: '' as keyof typeof Condition,
     price: 2000,
     bedrooms: 5,
     bathrooms: 5,
     sqft: 1000,
   });
+
+  const [filteredData, setFilteredData] = useState(
     defaultData.defaultData.map((data, index) => ({ ...data, id: index, condition: data.condition as Condition })),
-    const [filteredData, setFilteredData] = useState(
-    defaultData.defaultData.map((data, index) => ({ ...data, id: index })),
   );
 
   const uniqueConditions = Array.from(
@@ -33,21 +32,35 @@ const Search: React.FC = () => {
   };
 
   const handleSearch = () => {
-    const results = defaultData.defaultData.map((data, index) => ({ ...data, id: index })).filter((data) => (
-      (filters.condition === '' || data.condition === filters.condition)
+    const results = defaultData.defaultData
+      .map((data, index) => ({
+        ...data,
+        id: index,
+        condition: data.condition as Condition,
+      }))
+      .filter((data) => (
+        (filters.condition === null || data.condition === filters.condition)
         && data.price <= filters.price
         && data.bedrooms <= filters.bedrooms
         && data.bathrooms <= filters.bathrooms
         && data.sqft <= filters.sqft
-    ));
+      ));
 
     setFilteredData(results);
   };
 
   return (
-    <div>
-      <h1>Search Properties</h1>
+    <div style={{ fontFamily: 'Merriweather, serif',
+      color: 'black',
+      textShadow: '0 0 5px rgb(189, 204, 120)' }}
+    >
+      <h1>
+        <strong>
+          Search Properties
+        </strong>
+      </h1>
       <form onSubmit={(e) => e.preventDefault()}>
+        {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
         <label htmlFor="condition">Condition:</label>
         <select id="condition" value={filters.condition} onChange={handleFilterChange} aria-labelledby="condition">
           <option value="">Any</option>
@@ -136,7 +149,11 @@ const Search: React.FC = () => {
         </button>
       </form>
 
-      <h2>Search Results</h2>
+      <h2>
+        <strong>
+          Search Results
+        </strong>
+      </h2>
       {filteredData.length > 0 ? (
         filteredData.map((data) => (
           <PropertyCard key={data.id} property={data} />
