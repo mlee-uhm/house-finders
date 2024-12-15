@@ -1,13 +1,12 @@
 import { getServerSession } from 'next-auth';
 import { notFound } from 'next/navigation';
-import { Property } from '@prisma/client';
+import { User } from '@prisma/client';
 import authOptions from '@/lib/authOptions';
 import { loggedInProtectedPage } from '@/lib/page-protection';
 import { prisma } from '@/lib/prisma';
 // import EditPropertyForm from '@/components/EditPropertyForm';
-import { Button, Card, Col, Container, Row } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 import Image from 'next/image';
-import Link from 'next/link';
 // import { errors } from '@playwright/test';
 // import { register } from 'module';
 // import { classValidatorResolver } from '@hookform/resolvers/class-validator';
@@ -18,7 +17,6 @@ type TParam = Promise<{ slug: string[] }>;
 export default async function EditStuffPage({ params }: { params: TParam }) {
   // Protect the page, only logged in users can access it.
   const session = await getServerSession(authOptions);
-  const user = session?.user as { id: string; email?: string | null; name?: string | null; image?: string | null };
   loggedInProtectedPage(
     session as {
       user: { email: string; id: string; randomKey: string };
@@ -48,9 +46,8 @@ export default async function EditStuffPage({ params }: { params: TParam }) {
 
 */
 
-export default async function PropertyPage({ params }: { params: { id: string } }) {
+export default async function ProfilePage({ params }: { params: { email: string } }) {
   const session = await getServerSession(authOptions);
-  // const user = session?.user as { id: string; email?: string | null; name?: string | null; image?: string | null };
   loggedInProtectedPage(
     session as {
       user: { email: string; id: string; randomKey: string };
@@ -58,15 +55,18 @@ export default async function PropertyPage({ params }: { params: { id: string } 
     } | null,
   );
 
-  const id = Number(Array.isArray(params?.id) ? params?.id[0] : params?.id);
-  const property: Property | null = await prisma.property.findUnique({
-    where: { id },
-  });
-  // console.log(stuff);
-  if (!property) {
+  const email = Array.isArray(params?.email) ? params?.email[0] : params?.email;
+  if (!email) {
     return notFound();
   }
-  console.log(id);
+  const profile: User | null = await prisma.user.findUnique({
+    where: { email },
+  });
+  // console.log(stuff);
+  if (!profile) {
+    return notFound();
+  }
+  console.log(email);
   return (
     <Container className="py-3">
       <Row className="justify-content-center p-3">
@@ -78,49 +78,8 @@ export default async function PropertyPage({ params }: { params: { id: string } 
           style={{ width: '50%', height: 'auto' }}
         />
       </Row>
-      <Row className="justify-content-center">
-        <Col className="text-center">
-          <h2 style={{ color: 'green' }}>
-            $
-            {property.price}
-            /month
-          </h2>
-          <h4>{property.address}</h4>
-        </Col>
-        <Col className="text-center">
-          <Container>
-            <Row>
-              <Col>
-                <h2><strong style={{ color: 'green' }}>{property.bedrooms}</strong></h2>
-                beds
-              </Col>
-              <Col>
-                <h2><strong style={{ color: 'green' }}>{property.bathrooms}</strong></h2>
-                baths
-              </Col>
-              <Col>
-                <h2><strong style={{ color: 'green' }}>{property.sqft}</strong></h2>
-                sqft
-              </Col>
-            </Row>
-          </Container>
-        </Col>
-        <Col>
-          <Card
-            className="p-2 rounded"
-            style={{
-              width: '50%',
-              backgroundColor: 'transparent',
-              borderWidth: '2px',
-              borderColor: 'green',
-            }}
-          >
-            <Link href={`/profile/${encodeURIComponent(property.landlord)}`} passHref>
-              <Button variant="primary" style={{ backgroundColor: 'green' }}>Contact Information</Button>
-            </Link>
-          </Card>
-        </Col>
-      </Row>
+      {/* <Row className="justify-content-center">
+      </Row> */}
     </Container>
   );
 }
