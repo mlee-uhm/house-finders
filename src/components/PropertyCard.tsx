@@ -12,6 +12,12 @@ const PropertyCard = ({ property }: { property: Property }) => {
   const { data: session } = useSession();
   const isOwner = session?.user?.email === property.landlord;
 
+  const conditionStyle = {
+    AVAILABLE: { color: 'green' },
+    UNAVAILABLE: { color: 'red' },
+    PENDING: { color: 'yellow' },
+  };
+
   return (
     <Card border="info" style={{ width: '20rem' }}>
       <Card.Img src={placeholder.src} variant="top" height={180} />
@@ -27,7 +33,9 @@ const PropertyCard = ({ property }: { property: Property }) => {
         </Card.Subtitle>
         <Card.Text>
           Condition: &nbsp;
-          {property.condition}
+          <span style={conditionStyle[property.condition]}>
+            {property.condition}
+          </span>
           <br />
         </Card.Text>
         <ListGroup className="list-group-flush">

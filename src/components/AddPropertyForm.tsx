@@ -50,7 +50,18 @@ const AddPropertyForm: React.FC = () => {
       <Row className="justify-content-center">
         <Col xs={10}>
           <Col className="text-center">
-            <h2>Add Property</h2>
+            <h2
+              className="text-center"
+              style={{ fontFamily: 'Merriweather, serif',
+                fontSize: '50px',
+                color: 'rgb(31, 72, 155)',
+                textShadow: '0 0 5px rgb(189, 204, 120)',
+              }}
+            >
+              <strong>
+                Add Property
+              </strong>
+            </h2>
           </Col>
           <Card>
             <Card.Body>

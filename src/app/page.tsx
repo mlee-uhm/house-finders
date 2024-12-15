@@ -50,7 +50,7 @@ const Home = () => {
                 color: 'black',
                 textShadow: '2px 2px 4px #F0E68C, -2px -2px 4px #F0E68C' }}
             >
-              <h1>Welcome to your House Finding Journey</h1>
+              <h1>Welcome to Your House Finding Journey</h1>
               <h5>
                 <strong>
                   A housing finder website connects students seeking roommates with
