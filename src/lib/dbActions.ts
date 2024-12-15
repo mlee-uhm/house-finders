@@ -10,13 +10,11 @@ import { prisma } from './prisma';
  */
 export async function addStuff(stuff: { name: string; quantity: number; owner: string; condition: string }) {
   // console.log(`addStuff data: ${JSON.stringify(stuff, null, 2)}`);
-  let condition: Condition = 'good';
-  if (stuff.condition === 'poor') {
-    condition = 'poor';
-  } else if (stuff.condition === 'excellent') {
-    condition = 'excellent';
+  let condition: Condition = 'AVAILABLE';
+  if (stuff.condition === 'PENDING') {
+    condition = 'PENDING';
   } else {
-    condition = 'fair';
+    condition = 'UNAVAILABLE';
   }
   await prisma.stuff.create({
     data: {
@@ -45,13 +43,11 @@ export async function addProperty(property: {
   landlord: string;
   images: string[];
 }) {
-  let condition: Condition = 'good';
-  if (property.condition === 'poor') {
-    condition = 'poor';
-  } else if (property.condition === 'excellent') {
-    condition = 'excellent';
+  let condition: Condition = 'AVAILABLE';
+  if (property.condition === 'PENDING') {
+    condition = 'PENDING';
   } else {
-    condition = 'fair';
+    condition = 'UNAVAILABLE';
   }
   await prisma.property.create({
     data: {

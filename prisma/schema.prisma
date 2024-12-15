@@ -24,7 +24,7 @@ model Property {
   bathrooms Int
   landlord  String
   sqft      Int
-  images    String[]   @default([])
+  images    String[]  @default([])
 }
 
 model Stuff {
@@ -47,8 +47,7 @@ enum Subrole {
 }
 
 enum Condition {
-  excellent
-  good
-  fair
-  poor
+  AVAILABLE
+  PENDING
+  UNAVAILABLE
 }

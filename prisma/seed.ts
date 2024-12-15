@@ -1,4 +1,4 @@
-import { PrismaClient, Role, Subrole } from '@prisma/client';
+import { PrismaClient, Role, Subrole, Condition } from '@prisma/client';
 import { hash } from 'bcrypt';
 import * as config from '../config/settings.development.json';
 
@@ -30,30 +30,29 @@ async function main() {
     });
     // console.log(`  Created user: ${user.email} with role: ${user.role}`);
   });
-  // config.defaultData.forEach(async (data, index) => {
-  //   let condition: Condition = 'good';
-  //   if (data.condition === 'poor') {
-  //     condition = 'poor';
-  //   } else if (data.condition === 'excellent') {
-  //     condition = 'excellent';
-  //   } else {
-  //     condition = 'fair';
-  //   }
-  //   console.log(`  Adding stuff: ${data.address} (${data.landlord})`);
-  //   await prisma.property.upsert({
-  //     where: { id: index + 1 },
-  //     update: {},
-  //     create: {
-  //       address: data.address,
-  //       price: data.price,
-  //       condition,
-  //       bedrooms: data.bedrooms,
-  //       bathrooms: data.bathrooms,
-  //       sqft: data.sqft,
-  //       landlord: data.landlord,
-  //     },
-  //   });
-  // });
+  config.defaultData.forEach(async (data, index) => {
+    let condition: Condition = 'AVAILABLE';
+    if (data.condition === 'PENDING') {
+      condition = 'PENDING';
+    } else {
+      condition = 'UNAVAILABLE';
+    }
+    console.log(`  Adding stuff: ${data.address} (${data.landlord})`);
+    await prisma.property.upsert({
+      where: { id: index + 1 },
+      update: {},
+      create: {
+        address: data.address,
+        price: data.price,
+        condition,
+        bedrooms: data.bedrooms,
+        bathrooms: data.bathrooms,
+        sqft: data.sqft,
+        landlord: data.landlord,
+        images: data.images,
+      },
+    });
+  });
 }
 main()
   .then(() => prisma.$disconnect())

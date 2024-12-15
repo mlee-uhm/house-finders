@@ -5,7 +5,7 @@ import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 import { Card, ListGroup } from 'react-bootstrap';
 import { Pencil } from 'react-bootstrap-icons';
-import placeholder from '../../public/placeholder.png';
+// import placeholder from '../../public/placeholder.png';
 
 /* Renders a single Property. See list/page.tsx. */
 const PropertyCard = ({ property }: { property: Property }) => {
@@ -14,7 +14,7 @@ const PropertyCard = ({ property }: { property: Property }) => {
 
   return (
     <Card border="info" style={{ width: '20rem' }}>
-      <Card.Img src={placeholder.src} variant="top" height={180} />
+      <Card.Img src={property.images[0]} variant="top" height={180} />
       <Card.Body>
         <Card.Title>{property.address}</Card.Title>
         <Card.Subtitle>
