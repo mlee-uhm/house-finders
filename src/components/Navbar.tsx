@@ -65,19 +65,19 @@ const NavBar: React.FC = () => {
                 </Nav.Link>,
               ]
             ) : ''}
-            {currentUser ? (
+            {currentUser && subrole === 'LANDLORD' ? (
               [
-                <Nav.Link
-                  id="list-stuff-nav"
-                  href="/list"
-                  key="list"
-                  active={pathName === '/list'}
-                  style={{ marginRight: '15px' }}
-                >
-                My Properties
-                </Nav.Link>,
-            ]
-          ) : ''}
+              <Nav.Link
+                id="list-stuff-nav"
+                href="/list"
+                key="list"
+                active={pathName === '/list'}
+                style={{ marginRight: '15px' }}
+              >
+              My Properties
+              </Nav.Link>,
+              ]
+            ) : ''}
             {currentUser && role === 'ADMIN' ? (
               <Nav.Link
                 id="admin-stuff-nav"
