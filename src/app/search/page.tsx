@@ -15,7 +15,7 @@ const Search: React.FC = () => {
     sqft: 1000,
   });
     defaultData.defaultData.map((data, index) => ({ ...data, id: index, condition: data.condition as Condition })),
-  const [filteredData, setFilteredData] = useState(
+    const [filteredData, setFilteredData] = useState(
     defaultData.defaultData.map((data, index) => ({ ...data, id: index })),
   );
 
