@@ -21,7 +21,7 @@ export default async function EditStuffPage({ params }: { params: TParam }) {
 
   console.log(params);
   const { slug } = await params;
-  const id = Number(slug[0]);
+  const id = Number(slug);
   console.log(id);
   // const id = Number(Array.isArray(params?.id) ? params?.id[0] : params?.id);
 
