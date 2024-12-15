@@ -24,6 +24,7 @@ model Property {
   bathrooms Int
   landlord  String
   sqft      Int
+  images    String[]   @default([])
 }
 
 model Stuff {

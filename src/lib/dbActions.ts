@@ -43,6 +43,7 @@ export async function addProperty(property: {
   bathrooms: number;
   sqft: number;
   landlord: string;
+  images: string[];
 }) {
   let condition: Condition = 'good';
   if (property.condition === 'poor') {
@@ -61,6 +62,7 @@ export async function addProperty(property: {
       bathrooms: property.bathrooms,
       sqft: property.sqft,
       landlord: property.landlord,
+      images: property.images,
     },
   });
   redirect('/list');
@@ -96,6 +98,7 @@ export async function editProperty(property: Property) {
       bathrooms: property.bathrooms,
       sqft: property.sqft,
       landlord: property.landlord,
+      images: property.images,
     },
   });
   // After updating, redirect to the list page
