@@ -12,21 +12,30 @@ const PropertyCard = ({ property }: { property: Property }) => {
   const { data: session } = useSession();
   const isOwner = session?.user?.email === property.landlord;
 
+  const conditionStyle = {
+    AVAILABLE: { color: 'green' },
+    UNAVAILABLE: { color: 'red' },
+    PENDING: { color: 'yellow' },
+  };
+
   return (
     <Card border="info" style={{ width: '20rem' }}>
       <Card.Img src={property.images[0]} variant="top" height={180} />
       <Card.Body>
-        <Card.Title>{property.address}</Card.Title>
+        <Card.Title>
+          <Link href={`/property/${property.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+            {property.address}
+          </Link>
+        </Card.Title>
         <Card.Subtitle>
           $&nbsp;
           {property.price}
         </Card.Subtitle>
-        <Card.Subtitle>
-          {property.id}
-        </Card.Subtitle>
         <Card.Text>
           Condition: &nbsp;
-          {property.condition}
+          <span style={conditionStyle[property.condition]}>
+            {property.condition}
+          </span>
           <br />
         </Card.Text>
         <ListGroup className="list-group-flush">
@@ -47,18 +56,23 @@ const PropertyCard = ({ property }: { property: Property }) => {
           Landlord: &nbsp;
           {property.landlord}
         </Card.Footer>
-        {isOwner && (
-        <Link href={`/edit/${property.id}`} className="d-flex justify-content-end">
-          <button
-            type="button"
-            className="btn btn-primary btn-sm mt-2"
-            style={{ padding: '0.25rem 0.5rem', fontSize: '0.75rem', backgroundColor: 'green' }}
-          >
-            <Pencil color="white" />
-            <div>Edit</div>
-          </button>
-        </Link>
-        )}
+        <div className="d-flex justify-content-between align-items-center">
+          <Card.Subtitle>
+            {property.id}
+          </Card.Subtitle>
+          {isOwner && (
+            <Link href={`/edit/${property.id}`} className="d-flex justify-content-end">
+              <button
+                type="button"
+                className="btn btn-primary btn-sm mt-2"
+                style={{ padding: '0.25rem 0.5rem', fontSize: '0.75rem', backgroundColor: 'green' }}
+              >
+                <Pencil color="white" />
+                <div>Edit</div>
+              </button>
+            </Link>
+          )}
+        </div>
       </Card.Body>
     </Card>
   );
