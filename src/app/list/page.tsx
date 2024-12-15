@@ -30,7 +30,18 @@ const ListProperties = async () => {
         <Container>
           <Row>
             <Col>
-              <h2 className="text-center">Your Properties</h2>
+              <h2
+                className="text-center"
+                style={{ fontFamily: 'Merriweather, serif',
+                  fontSize: '50px',
+                  color: 'rgb(31, 72, 155)',
+                  textShadow: '0 0 5px rgb(189, 204, 120)',
+                }}
+              >
+                <strong>
+                  Your Properties
+                </strong>
+              </h2>
               <Row xs={1} md={2} lg={3} className="g-4">
                 {properties.map((property: Property) => (
                   <Col>

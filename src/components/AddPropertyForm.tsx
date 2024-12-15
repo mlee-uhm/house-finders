@@ -50,7 +50,18 @@ const AddPropertyForm: React.FC = () => {
       <Row className="justify-content-center">
         <Col xs={10}>
           <Col className="text-center">
-            <h2>Add Property</h2>
+            <h2
+              className="text-center"
+              style={{ fontFamily: 'Merriweather, serif',
+                fontSize: '50px',
+                color: 'rgb(31, 72, 155)',
+                textShadow: '0 0 5px rgb(189, 204, 120)',
+              }}
+            >
+              <strong>
+                Add Property
+              </strong>
+            </h2>
           </Col>
           <Card>
             <Card.Body>
@@ -131,10 +142,9 @@ const AddPropertyForm: React.FC = () => {
                         {...register('condition')}
                         className={`form-control ${errors.condition ? 'is-invalid' : ''}`}
                       >
-                        <option value="excellent">Excellent</option>
-                        <option value="good">Good</option>
-                        <option value="fair">Fair</option>
-                        <option value="poor">Poor</option>
+                        <option value="AVAILABLE">AVAILABLE</option>
+                        <option value="PENDING">PENDING</option>
+                        <option value="UNAVAILABLE">UNAVAILABLE</option>
                       </select>
                       <div className="invalid-feedback">{errors.condition?.message}</div>
                     </Form.Group>
