@@ -8,7 +8,6 @@ import EditPropertyForm from '@/components/EditPropertyForm';
 // import { classValidatorResolver } from '@hookform/resolvers/class-validator';
 // import { Sliders } from 'react-bootstrap-icons';
 
-/*
 type TParam = Promise<{ slug: string[] }>;
 export default async function EditStuffPage({ params }: { params: TParam }) {
   // Protect the page, only logged in users can access it.
@@ -22,7 +21,8 @@ export default async function EditStuffPage({ params }: { params: TParam }) {
 
   console.log(params);
   const { slug } = await params;
-  const id = 6; //Number(slug[1]);
+  const id = Number(slug[0]);
+  console.log(id);
   // const id = Number(Array.isArray(params?.id) ? params?.id[0] : params?.id);
 
   const property: Property | null = await prisma.property.findUnique({
@@ -40,8 +40,7 @@ export default async function EditStuffPage({ params }: { params: TParam }) {
   );
 }
 
-*/
-
+/*
 export default async function EditStuffPage({ params }: { params: { id: string } }) {
   const session = await getServerSession(authOptions);
   loggedInProtectedPage(
@@ -66,3 +65,4 @@ export default async function EditStuffPage({ params }: { params: { id: string }
     </div>
   );
 }
+*/
