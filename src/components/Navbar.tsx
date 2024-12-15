@@ -96,11 +96,11 @@ const NavBar: React.FC = () => {
             {session ? (
               <NavDropdown id="login-dropdown" title={currentUser}>
                 <NavDropdown.Item id="login-dropdown-sign-out" href="/api/auth/signout">
-                  <BoxArrowRight />
+                  <BoxArrowRight className="ml-2" style={{ width: '1em', height: '1em' }} />
                   Sign Out
                 </NavDropdown.Item>
                 <NavDropdown.Item id="login-dropdown-change-password" href="/auth/change-password">
-                  <Lock />
+                  <Lock className="ml-2" style={{ width: '1em', height: '1em' }} />
                   Change Password
                 </NavDropdown.Item>
               </NavDropdown>
