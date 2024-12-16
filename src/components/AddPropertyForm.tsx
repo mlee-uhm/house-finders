@@ -61,8 +61,7 @@ const AddPropertyForm: React.FC = () => {
               style={{
                 fontFamily: 'Merriweather, serif',
                 fontSize: '50px',
-                color: 'rgb(31, 72, 155)',
-                textShadow: '0 0 5px rgb(189, 204, 120)',
+                color: 'rgb(141, 164, 184)',
               }}
             >
               <strong>Add Property</strong>

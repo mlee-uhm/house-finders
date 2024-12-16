@@ -32,7 +32,13 @@ const EditPropertyForm = ({ property }: { property: Property }) => {
       <Row className="justify-content-center">
         <Col xs={10}>
           <Col className="text-center">
-            <h2>Edit Property</h2>
+            <h2 style={{
+              fontFamily: 'Merriweather, serif',
+              fontSize: '50px',
+              color: 'rgb(141, 164, 184)' }}
+            >
+              <strong>Edit Property</strong>
+            </h2>
           </Col>
           <Card>
             <Card.Body>
