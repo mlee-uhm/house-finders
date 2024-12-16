@@ -15,22 +15,22 @@
 :root {
   --nat-navbar-bg: black;
   --nat-navbar-bg: black;
-  --nat-navbar-highlight-text: khaki;
+  --nat-navbar-highlight-text: rgb(124, 138, 150);
   --nat-navbar-bg-rgb: 128, 0, 128;
-  --nat-navbar-text-color: black;
+  --nat-navbar-text-color: white;
 }
 
-
+/*--bs-light-rgb: 194, 178, 128;*/
 html,
 body {
   --bs-dark: var(--nat-navbar-bg);
-  --bs-light-rgb: 194, 178, 128;
+  --bs-light-rgb: 2, 22, 39;
   --bs-dark-rgb: var(--nat-navbar-bg-rgb);
   box-sizing: border-box;
   height: 135%;
   padding: 0;
   margin: 0;
-  background: fixed center url("/background.jpg");
+  background: fixed center url("/background-blue.png");
   background-size: cover;
 }
 body .navbar {
@@ -52,11 +52,11 @@ footer, footer a {
 }
 
 p {
-  color: black;
+  color: white;
 }
 
 h6 {
-  color:black; 
+  color: white; 
 }
 
 /* footer2 */

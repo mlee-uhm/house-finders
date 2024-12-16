@@ -29,7 +29,7 @@ const NavBar: React.FC = () => {
         style={{ fontFamily: 'Georgia, serif', display: 'flex', alignItems: 'center', fontSize: '28px' }}
       >
         <Image
-          src="/HF_logo.png"
+          src="/HF_logo_dark.png"
           alt="Logo"
           width={80}
           height={68}
@@ -39,18 +39,30 @@ const NavBar: React.FC = () => {
       </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="ms-auto" style={{ marginRight: '28px' }}>
-          <Nav.Link id="for-rent-nav" href="/for-rent" key="for-rent" active={pathName === '/for-rent'}>
-          <HouseFill className="ml-2" style={{ width: '1em', height: '1em' }} />
+        <Nav className="ms-auto" style={{ marginRight: '25px' }}>
+            <Nav.Link
+              id="for-rent-nav"
+              href="/for-rent"
+              key="for-rent"
+              active={pathName === '/for-rent'}
+              style={{ display: 'flex', alignItems: 'center' }}
+            >
+            <HouseFill className="ml-2" style={{ width: '1em', height: '1em', marginRight: '4px' }} color="white" />
             For Rent
-          </Nav.Link>
+            </Nav.Link>
         </Nav>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Nav className="justify-content-center" style={{ marginRight: '30px' }}>
-          <Nav.Link id="search-nav" href="/search" key="search" active={pathName === '/search'}>
-            <Search className="ml-2" style={{ width: '1em', height: '1em' }} />
+        <Nav className="justify-content-center" style={{ marginRight: '25px' }}>
+            <Nav.Link
+              id="search-nav"
+              href="/search"
+              key="search"
+              active={pathName === '/search'}
+              style={{ display: 'flex', alignItems: 'center' }}
+            >
+            <Search className="ml-2" style={{ width: '1em', height: '1em', marginRight: '4px' }} color="white" />
             Search
-          </Nav.Link>
+            </Nav.Link>
         </Nav>
             {currentUser && subrole === 'LANDLORD' ? (
               [
@@ -59,7 +71,8 @@ const NavBar: React.FC = () => {
                   href="/add"
                   key="add"
                   active={pathName === '/add'}
-                  style={{ marginRight: '15px' }}
+                  style={{ marginRight: '25px' }}
+                  className="text-white"
                 >
                 Add Properties
                 </Nav.Link>,
@@ -73,6 +86,7 @@ const NavBar: React.FC = () => {
                 key="list"
                 active={pathName === '/list'}
                 style={{ marginRight: '15px' }}
+                className="text-white"
               >
               My Properties
               </Nav.Link>,

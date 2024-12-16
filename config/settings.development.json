@@ -3,15 +3,49 @@
     { "email": "admin@foo.com", "password": "changeme", "role": "ADMIN", "subrole": "ADMIN" },
     { "email": "john@foo.com", "password": "changeme", "role": "USER", "subrole": "RENTER" },
     { "email": "landlord@foo.com", "password": "changeme", "role": "USER", "subrole": "LANDLORD" },
-    { "email": "renter@foo.com", "password": "changeme", "role": "USER", "subrole": "RENTER" }
+    { "email": "renter@foo.com", "password": "changeme", "role": "USER", "subrole": "RENTER" },
+    { "email": "landlord1@foo.com", "password": "changeme", "role": "USER", "subrole": "LANDLORD" },
+    { "email": "landlord2@foo.com", "password": "changeme", "role": "USER", "subrole": "LANDLORD" },
+    { "email": "landlord3@foo.com", "password": "changeme", "role": "USER", "subrole": "LANDLORD" },
+    { "email": "landlord4@foo.com", "password": "changeme", "role": "USER", "subrole": "LANDLORD" },
+    { "email": "landlord5@foo.com", "password": "changeme", "role": "USER", "subrole": "LANDLORD" },
+    { "email": "landlord6@foo.com", "password": "changeme", "role": "USER", "subrole": "LANDLORD" },
+    { "email": "landlord7@foo.com", "password": "changeme", "role": "USER", "subrole": "LANDLORD" },
+    { "email": "landlord8@foo.com", "password": "changeme", "role": "USER", "subrole": "LANDLORD" },
+    { "email": "landlord9@foo.com", "password": "changeme", "role": "USER", "subrole": "LANDLORD" },
+    { "email": "landlord10@foo.com", "password": "changeme", "role": "USER", "subrole": "LANDLORD" },
+    { "email": "landlord11@foo.com", "password": "changeme", "role": "USER", "subrole": "LANDLORD" },
+    { "email": "landlord12@foo.com", "password": "changeme", "role": "USER", "subrole": "LANDLORD" },
+    { "email": "landlord13@foo.com", "password": "changeme", "role": "USER", "subrole": "LANDLORD" },
+    { "email": "landlord14@foo.com", "password": "changeme", "role": "USER", "subrole": "LANDLORD" },
+    { "email": "landlord15@foo.com", "password": "changeme", "role": "USER", "subrole": "LANDLORD" },
+    { "email": "landlord16@foo.com", "password": "changeme", "role": "USER", "subrole": "LANDLORD" },
+    { "email": "landlord17@foo.com", "password": "changeme", "role": "USER", "subrole": "LANDLORD" },
+    { "email": "landlord18@foo.com", "password": "changeme", "role": "USER", "subrole": "LANDLORD" },
+    { "email": "landlord19@foo.com", "password": "changeme", "role": "USER", "subrole": "LANDLORD" },
+    { "email": "landlord20@foo.com", "password": "changeme", "role": "USER", "subrole": "LANDLORD" }
   ],
 
-  "defaultData": [
-    { "address": "1234 Elm St. Springfield HI USA, 62701", "price": 1000, "condition": "UNAVAILABLE", "bedrooms": 3, "bathrooms": 2, "sqft": 300, "landlord": "landlord@foo.com", "images": "https://jyrvjpy3hrd7xssz.public.blob.vercel-storage.com/placeholder-F7rvYy4D33KoyLdMUqjg65heObeIFE.png"},
-    { "address": "1435 Elm St. Springfield HI USA, 62701", "price": 3000, "condition": "UNAVAILABLE", "bedrooms": 2, "bathrooms": 1, "sqft": 200, "landlord": "landlord@foo.com", "images": "https://jyrvjpy3hrd7xssz.public.blob.vercel-storage.com/placeholder-F7rvYy4D33KoyLdMUqjg65heObeIFE.png"},
-    { "address": "5678 Oak St. Springfield HI USA, 62702", "price": 650, "condition": "PENDING", "bedrooms": 1, "bathrooms": 2, "sqft": 150, "landlord": "landlord@foo.com", "images": "https://jyrvjpy3hrd7xssz.public.blob.vercel-storage.com/placeholder-F7rvYy4D33KoyLdMUqjg65heObeIFE.png" },
-    { "address": "2345 Elk St. Springfield HI USA, 62703", "price": 800, "condition": "AVAILABLE", "bedrooms": 2, "bathrooms": 2, "sqft": 300, "landlord": "landlord@foo.com", "images": "https://jyrvjpy3hrd7xssz.public.blob.vercel-storage.com/placeholder-F7rvYy4D33KoyLdMUqjg65heObeIFE.png" },
-    { "address": "5421 Milk St. Springfield HI USA, 62704", "price": 800, "condition": "AVAILABLE", "bedrooms": 2, "bathrooms": 2, "sqft": 300, "landlord": "landlord@foo.com", "images": "https://jyrvjpy3hrd7xssz.public.blob.vercel-storage.com/placeholder-F7rvYy4D33KoyLdMUqjg65heObeIFE.png" }
-  ]
+"defaultData": [
+  { "address": "1234 Elm St. Springfield HI USA, 62701", "price": 1000, "condition": "UNAVAILABLE", "bedrooms": 3, "bathrooms": 2, "sqft": 300, "landlord": "landlord@foo.com", "images": "https://jyrvjpy3hrd7xssz.public.blob.vercel-storage.com/pexels-scottwebb-1029599-9wQOtTVHa42JagonT3s1BVmXge61DG.jpg"},
+  { "address": "1435 Elm St. Springfield HI USA, 62701", "price": 3000, "condition": "UNAVAILABLE", "bedrooms": 2, "bathrooms": 1, "sqft": 200, "landlord": "landlord@foo.com", "images": "https://jyrvjpy3hrd7xssz.public.blob.vercel-storage.com/pexels-photo-3555615-A3e1JgLs8P7bSfkeVu9aogd89sUb2l.webp"},
+  { "address": "5678 Oak St. Springfield HI USA, 62702", "price": 650, "condition": "PENDING", "bedrooms": 1, "bathrooms": 2, "sqft": 150, "landlord": "landlord@foo.com", "images": "https://jyrvjpy3hrd7xssz.public.blob.vercel-storage.com/pexels-kelly-1179532-2510067-ioBqxoahBEe9YXsDhw1vmEBsTkgd5s.jpg" },
+  { "address": "2345 Elk St. Springfield HI USA, 62703", "price": 800, "condition": "AVAILABLE", "bedrooms": 2, "bathrooms": 2, "sqft": 300, "landlord": "landlord@foo.com", "images": "https://jyrvjpy3hrd7xssz.public.blob.vercel-storage.com/R-HmroRXI515Oc9TVmf8DsKlp96IElPM.jpg" },
+  { "address": "5421 Milk St. Springfield HI USA, 62704", "price": 800, "condition": "AVAILABLE", "bedrooms": 2, "bathrooms": 2, "sqft": 300, "landlord": "landlord@foo.com", "images": "https://jyrvjpy3hrd7xssz.public.blob.vercel-storage.com/d49e6218507070436829acf2a36d37ec-818x545-bmVFTObLlK6r02pQP4trXwswjCXkIn.jpeg" },
+  { "address": "6789 Pine St. Springfield HI USA, 62705", "price": 1200, "condition": "AVAILABLE", "bedrooms": 4, "bathrooms": 3, "sqft": 400, "landlord": "landlord1@foo.com", "images": "https://jyrvjpy3hrd7xssz.public.blob.vercel-storage.com/download-dQ2oBjq4y4A2DuZYeJugaOnDAeH9w5.jpg" },
+  { "address": "7890 Maple St. Springfield HI USA, 62706", "price": 900, "condition": "PENDING", "bedrooms": 3, "bathrooms": 2, "sqft": 350, "landlord": "landlord2@foo.com", "images": "https://jyrvjpy3hrd7xssz.public.blob.vercel-storage.com/OIP_1-E1Nlt50LWSmKEVSHp9sUXNsmeDp09S.jpg" },
+  { "address": "8901 Cedar St. Springfield HI USA, 62707", "price": 1100, "condition": "UNAVAILABLE", "bedrooms": 2, "bathrooms": 1, "sqft": 250, "landlord": "landlord3@foo.com", "images": "https://jyrvjpy3hrd7xssz.public.blob.vercel-storage.com/3kSAXE-zAIdcziBIieeaSBQ2GjeECIbInDBMK.png" },
+  { "address": "9012 Birch St. Springfield HI USA, 62708", "price": 1300, "condition": "AVAILABLE", "bedrooms": 5, "bathrooms": 4, "sqft": 500, "landlord": "landlord4@foo.com", "images": "https://jyrvjpy3hrd7xssz.public.blob.vercel-storage.com/OIP-KHDSiLelf4oXwy4kPcHAGydwzDv1Dj.png" },
+  { "address": "1235 Walnut St. Springfield HI USA, 62709", "price": 700, "condition": "PENDING", "bedrooms": 1, "bathrooms": 1, "sqft": 150, "landlord": "landlord5@foo.com", "images": "https://jyrvjpy3hrd7xssz.public.blob.vercel-storage.com/architecture-bungalow-chimney-1569003-XfOoZOS3WZML8kKIRlNSlh0YURSp3Q.jpg" },
+  { "address": "2346 Chestnut St. Springfield HI USA, 62710", "price": 950, "condition": "UNAVAILABLE", "bedrooms": 3, "bathrooms": 2, "sqft": 300, "landlord": "landlord6@foo.com", "images": "https://jyrvjpy3hrd7xssz.public.blob.vercel-storage.com/home-1597079_960_720-jjKBjcOlqHPPp5F0QrZG90Hil7WhYI.png" },
+  { "address": "3457 Ash St. Springfield HI USA, 62711", "price": 1150, "condition": "AVAILABLE", "bedrooms": 4, "bathrooms": 3, "sqft": 400, "landlord": "landlord7@foo.com", "images": "https://jyrvjpy3hrd7xssz.public.blob.vercel-storage.com/photo-1576941089067-2de3c901e126-0tWba6JtKSewBx6U7xMsCyLqJ5knOg.png" },
+  { "address": "4568 Poplar St. Springfield HI USA, 62712", "price": 850, "condition": "PENDING", "bedrooms": 2, "bathrooms": 1, "sqft": 200, "landlord": "landlord8@foo.com", "images": "https://jyrvjpy3hrd7xssz.public.blob.vercel-storage.com/beautiful-house-29-gP7VqCK9yUBEsOrM2DyG2ztA5KLRma.jpg" },
+  { "address": "5679 Fir St. Springfield HI USA, 62713", "price": 1050, "condition": "UNAVAILABLE", "bedrooms": 3, "bathrooms": 2, "sqft": 350, "landlord": "landlord9@foo.com", "images": "https://jyrvjpy3hrd7xssz.public.blob.vercel-storage.com/home-24-GhUhyZr1KdH04QwXJhQKu9sRLpyYqM.png" },
+  { "address": "6780 Spruce St. Springfield HI USA, 62714", "price": 1250, "condition": "AVAILABLE", "bedrooms": 5, "bathrooms": 4, "sqft": 450, "landlord": "landlord10@foo.com", "images": "https://jyrvjpy3hrd7xssz.public.blob.vercel-storage.com/architecture-clouds-daylight-259588-Bq2GklkGDiRAjcdseTWpZok1kzNV07.jpg" },
+  { "address": "7891 Redwood St. Springfield HI USA, 62715", "price": 750, "condition": "PENDING", "bedrooms": 1, "bathrooms": 1, "sqft": 150, "landlord": "landlord11@foo.com", "images": "https://jyrvjpy3hrd7xssz.public.blob.vercel-storage.com/new-home-2409165_1280-gSMM1hXbgh2Wp1Qt6jYMuSjr3Pm54P.png" },
+  { "address": "8902 Sequoia St. Springfield HI USA, 62716", "price": 1000, "condition": "UNAVAILABLE", "bedrooms": 3, "bathrooms": 2, "sqft": 300, "landlord": "landlord12@foo.com", "images": "https://jyrvjpy3hrd7xssz.public.blob.vercel-storage.com/suburban-house-royalty-free-image-1584972559-ciodd49ehUfrxIEpsr6N9hO01K2860.png" },
+  { "address": "9013 Cypress St. Springfield HI USA, 62717", "price": 1100, "condition": "AVAILABLE", "bedrooms": 4, "bathrooms": 3, "sqft": 400, "landlord": "landlord13@foo.com", "images": "https://jyrvjpy3hrd7xssz.public.blob.vercel-storage.com/download%20(1)-QbjOdG7tNlnPTFPov8NG6ah3Szv1Bu.jpg" },
+  { "address": "1236 Willow St. Springfield HI USA, 62718", "price": 800, "condition": "PENDING", "bedrooms": 2, "bathrooms": 1, "sqft": 200, "landlord": "landlord14@foo.com", "images": "https://jyrvjpy3hrd7xssz.public.blob.vercel-storage.com/download%20(2)-F07QEiLekAuF6oWYtp8yaa5ecOhohb.jpg" },
+  { "address": "2347 Magnolia St. Springfield HI USA, 62719", "price": 950, "condition": "UNAVAILABLE", "bedrooms": 3, "bathrooms": 2, "sqft": 300, "landlord": "landlord15@foo.com", "images": "https://jyrvjpy3hrd7xssz.public.blob.vercel-storage.com/images-MStEBdGPnPh6jtu7INfLtyuQkUuuLg.jpg" }
+]
 }
-

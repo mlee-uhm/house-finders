@@ -41,10 +41,9 @@ const Home = async () => {
             <div
               style={{
                 padding: '65px',
-                color: 'black',
-                textShadow: '2px 2px 4px #F0E68C, -2px -2px 4px #F0E68C' }}
+                color: 'rgb(141, 164, 184)' }}
             >
-              <h1>Welcome to Your House Finding Journey</h1>
+              <h1 style={{ color: 'rgb(195, 209, 222)' }}>Welcome to Your House Finding Journey</h1>
               <h5>
                 <strong>
                   A housing finder website connects students seeking roommates with
@@ -54,7 +53,7 @@ const Home = async () => {
                 </strong>
               </h5>
             </div>
-            <div className="container swiper d-flex justify-content-between">
+            <div className="container swiper d-flex justify-content-between" style={{ marginBottom: '50px' }}>
               {threeProps.map((property) => (
                 <PropertyCard key={property.id} property={property} />
               ))}

@@ -34,15 +34,16 @@ const ListProperties = async () => {
                 className="text-center"
                 style={{ fontFamily: 'Merriweather, serif',
                   fontSize: '50px',
-                  color: 'rgb(31, 72, 155)',
-                  textShadow: '0 0 5px rgb(189, 204, 120)',
+                  color: 'rgb(141, 164, 184)',
+                  marginTop: '20px', // Added margin-top for spacing
+                  marginBottom: '20px', // Added margin-bottom for spacing
                 }}
               >
                 <strong>
                   Your Properties
                 </strong>
               </h2>
-              <Row key="property-row" xs={1} md={2} lg={3} className="g-4">
+              <Row key="property-row" xs={1} md={2} lg={3} className="g-4" style={{ marginBottom: '50px' }}>
                 {properties.map((property: Property) => (
                   <Col>
                     <PropertyCard key={property.id} property={property} />
