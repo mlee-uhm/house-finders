@@ -37,7 +37,7 @@ export default async function PropertyPage({ params }: { params: TParam }) {
     <Container className="py-3">
       <Row className="justify-content-center p-3">
         <Image
-          src="/House1FullView.jpg"
+          src={property.images}
           alt="Full view of the house"
           width={500}
           height={300}
