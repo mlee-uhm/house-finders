@@ -34,7 +34,7 @@ async function main() {
     let condition: Condition = 'AVAILABLE';
     if (data.condition === 'PENDING') {
       condition = 'PENDING';
-    } else {
+    } else if (data.condition === 'UNAVAILABLE') {
       condition = 'UNAVAILABLE';
     }
     console.log(`  Adding stuff: ${data.address} (${data.landlord})`);

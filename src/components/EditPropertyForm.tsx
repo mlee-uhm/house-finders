@@ -128,6 +128,46 @@ const EditPropertyForm = ({ property }: { property: Property }) => {
                     </Form.Group>
                   </Col>
                 </Row>
+                <Row>
+                  <Col>
+                    {/* <Form.Group>
+                      <Form.Label>Images</Form.Label>
+                      <input
+                      type="text"
+                      {...register('images')}
+                      className={`form-control ${errors.images ? 'is-invalid' : ''}`}
+                      />
+                      <div className="invalid-feedback">{errors.images?.message}</div>
+                    </Form.Group> */}
+                    <Form.Group>
+                      <Form.Label>Upload Images</Form.Label>
+                      <input
+                        type="file"
+                        accept="image/*"
+                        multiple
+                        onChange={async (e) => {
+                          const { files } = e.target;
+                          if (files) {
+                            const base64Images = await Promise.all(
+                              Array.from(files).map(
+                                (file) => new Promise<string | undefined>((resolve, reject) => {
+                                  const reader = new FileReader();
+                                  reader.readAsDataURL(file);
+                                  reader.onload = () => resolve(reader.result as string);
+                                  reader.onerror = () => reject(new Error('Failed to read file'));
+                                }),
+                              ),
+                            );
+                            const validImages = base64Images.filter((image): image is string => image !== undefined);
+                            reset({ images: validImages.join(',') });
+                          }
+                        }}
+                        className={`form-control ${errors.images ? 'is-invalid' : ''}`}
+                      />
+                      <div className="invalid-feedback">{errors.images?.message}</div>
+                    </Form.Group>
+                  </Col>
+                </Row>
                 <input type="hidden" {...register('landlord')} value={property.landlord} />
                 <Form.Group className="form-group">
                   <Row className="pt-3">

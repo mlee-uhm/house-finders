@@ -17,13 +17,12 @@ const onSubmit = (currentUser: string) => async (data: {
   bedrooms: number;
   bathrooms: number;
   sqft: number;
-  images: (string | undefined)[];
+  images: string;
   landlord: string;
 }) => {
   const propertyData = {
     ...data,
     landlord: currentUser,
-    images: data.images.filter((image): image is string => image !== undefined),
   };
   // console.log(`onSubmit data: ${JSON.stringify(propertyData, null, 2)}`);
   await addProperty(propertyData);
@@ -59,15 +58,14 @@ const AddPropertyForm: React.FC = () => {
           <Col className="text-center">
             <h2
               className="text-center"
-              style={{ fontFamily: 'Merriweather, serif',
+              style={{
+                fontFamily: 'Merriweather, serif',
                 fontSize: '50px',
                 color: 'rgb(31, 72, 155)',
                 textShadow: '0 0 5px rgb(189, 204, 120)',
               }}
             >
-              <strong>
-                Add Property
-              </strong>
+              <strong>Add Property</strong>
             </h2>
           </Col>
           <Card>
@@ -178,15 +176,17 @@ const AddPropertyForm: React.FC = () => {
                           const { files } = e.target;
                           if (files) {
                             const base64Images = await Promise.all(
-                              Array.from(files).map((file) => new Promise<string | undefined>((resolve, reject) => {
-                                const reader = new FileReader();
-                                reader.readAsDataURL(file);
-                                reader.onload = () => resolve(reader.result as string);
-                                reader.onerror = () => reject(new Error('Failed to read file'));
-                              })),
+                              Array.from(files).map(
+                                (file) => new Promise<string | undefined>((resolve, reject) => {
+                                  const reader = new FileReader();
+                                  reader.readAsDataURL(file);
+                                  reader.onload = () => resolve(reader.result as string);
+                                  reader.onerror = () => reject(new Error('Failed to read file'));
+                                }),
+                              ),
                             );
                             const validImages = base64Images.filter((image): image is string => image !== undefined);
-                            reset({ images: validImages });
+                            reset({ images: validImages.join(',') });
                           }
                         }}
                         className={`form-control ${errors.images ? 'is-invalid' : ''}`}

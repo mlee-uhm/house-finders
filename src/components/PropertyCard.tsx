@@ -20,7 +20,7 @@ const PropertyCard = ({ property }: { property: Property }) => {
 
   return (
     <Card border="info" style={{ width: '20rem' }}>
-      <Card.Img src={property.images[0]} variant="top" height={180} />
+      <Card.Img src={property.images} variant="top" height={180} />
       <Card.Body>
         <Card.Title>
           <Link href={`/property/${property.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
