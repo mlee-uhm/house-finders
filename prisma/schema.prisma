@@ -24,6 +24,7 @@ model Property {
   bathrooms Int
   landlord  String
   sqft      Int
+  images    String  @default("https://jyrvjpy3hrd7xssz.public.blob.vercel-storage.com/placeholder-F7rvYy4D33KoyLdMUqjg65heObeIFE.png")
 }
 
 model Stuff {
