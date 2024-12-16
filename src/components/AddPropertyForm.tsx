@@ -17,8 +17,13 @@ const onSubmit = (currentUser: string) => async (data: {
   bedrooms: number;
   bathrooms: number;
   sqft: number;
+  images: string;
+  landlord: string;
 }) => {
-  const propertyData = { ...data, landlord: currentUser };
+  const propertyData = {
+    ...data,
+    landlord: currentUser,
+  };
   // console.log(`onSubmit data: ${JSON.stringify(propertyData, null, 2)}`);
   await addProperty(propertyData);
   swal('Success', 'Your item has been added', 'success', {
@@ -38,6 +43,7 @@ const AddPropertyForm: React.FC = () => {
   } = useForm({
     resolver: yupResolver(AddPropertySchema),
   });
+
   if (status === 'loading') {
     return <LoadingSpinner />;
   }
@@ -52,15 +58,14 @@ const AddPropertyForm: React.FC = () => {
           <Col className="text-center">
             <h2
               className="text-center"
-              style={{ fontFamily: 'Merriweather, serif',
+              style={{
+                fontFamily: 'Merriweather, serif',
                 fontSize: '50px',
                 color: 'rgb(31, 72, 155)',
                 textShadow: '0 0 5px rgb(189, 204, 120)',
               }}
             >
-              <strong>
-                Add Property
-              </strong>
+              <strong>Add Property</strong>
             </h2>
           </Col>
           <Card>
@@ -147,6 +152,46 @@ const AddPropertyForm: React.FC = () => {
                         <option value="UNAVAILABLE">UNAVAILABLE</option>
                       </select>
                       <div className="invalid-feedback">{errors.condition?.message}</div>
+                    </Form.Group>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                    {/* <Form.Group>
+                      <Form.Label>Images</Form.Label>
+                      <input
+                      type="text"
+                      {...register('images')}
+                      className={`form-control ${errors.images ? 'is-invalid' : ''}`}
+                      />
+                      <div className="invalid-feedback">{errors.images?.message}</div>
+                    </Form.Group> */}
+                    <Form.Group>
+                      <Form.Label>Upload Images</Form.Label>
+                      <input
+                        type="file"
+                        accept="image/*"
+                        multiple
+                        onChange={async (e) => {
+                          const { files } = e.target;
+                          if (files) {
+                            const base64Images = await Promise.all(
+                              Array.from(files).map(
+                                (file) => new Promise<string | undefined>((resolve, reject) => {
+                                  const reader = new FileReader();
+                                  reader.readAsDataURL(file);
+                                  reader.onload = () => resolve(reader.result as string);
+                                  reader.onerror = () => reject(new Error('Failed to read file'));
+                                }),
+                              ),
+                            );
+                            const validImages = base64Images.filter((image): image is string => image !== undefined);
+                            reset({ images: validImages.join(',') });
+                          }
+                        }}
+                        className={`form-control ${errors.images ? 'is-invalid' : ''}`}
+                      />
+                      <div className="invalid-feedback">{errors.images?.message}</div>
                     </Form.Group>
                   </Col>
                 </Row>

@@ -1,8 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Condition } from '@prisma/client';
-import PropertyCard from '@/components/PropertyCard';
+import { Condition, Property } from '@prisma/client';
+import SearchPropertyCard from '@/components/SearchPropertyCard';
+import { Row, Col } from 'react-bootstrap';
 import defaultData from '../../../config/settings.development.json';
 
 const Search: React.FC = () => {
@@ -18,9 +19,7 @@ const Search: React.FC = () => {
     defaultData.defaultData.map((data, index) => ({ ...data, id: index, condition: data.condition as Condition })),
   );
 
-  const uniqueConditions = Array.from(
-    new Set(defaultData.defaultData.map((data) => data.condition)),
-  );
+  const uniqueConditions = Array.from(new Set(defaultData.defaultData.map((data) => data.condition)));
 
   const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { id, value } = e.target;
@@ -38,26 +37,21 @@ const Search: React.FC = () => {
         id: index,
         condition: data.condition as Condition,
       }))
-      .filter((data) => (
-        (filters.condition === null || data.condition === filters.condition)
-        && data.price <= filters.price
-        && data.bedrooms <= filters.bedrooms
-        && data.bathrooms <= filters.bathrooms
-        && data.sqft <= filters.sqft
-      ));
+      .filter(
+        (data) => (filters.condition === null || data.condition === filters.condition)
+          && data.price <= filters.price
+          && data.bedrooms <= filters.bedrooms
+          && data.bathrooms <= filters.bathrooms
+          && data.sqft <= filters.sqft,
+      );
 
     setFilteredData(results);
   };
 
   return (
-    <div style={{ fontFamily: 'Merriweather, serif',
-      color: 'black',
-      textShadow: '0 0 5px rgb(189, 204, 120)' }}
-    >
+    <div style={{ fontFamily: 'Merriweather, serif', color: 'black', textShadow: '0 0 5px rgb(189, 204, 120)' }}>
       <h1>
-        <strong>
-          Search Properties
-        </strong>
+        <strong>Search Properties</strong>
       </h1>
       <form onSubmit={(e) => e.preventDefault()}>
         {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
@@ -75,7 +69,6 @@ const Search: React.FC = () => {
 
         <label htmlFor="price">
           Price:
-          {' '}
           <span>
             $
             {filters.price}
@@ -95,8 +88,9 @@ const Search: React.FC = () => {
 
         <label htmlFor="bedrooms">
           Bedrooms:
-          {' '}
-          <span>{filters.bedrooms}</span>
+          <span>
+            {filters.bedrooms}
+          </span>
         </label>
         <input
           type="range"
@@ -112,8 +106,9 @@ const Search: React.FC = () => {
 
         <label htmlFor="bathrooms">
           Bathrooms:
-          {' '}
-          <span>{filters.bathrooms}</span>
+          <span>
+            {filters.bathrooms}
+          </span>
         </label>
         <input
           type="range"
@@ -129,8 +124,9 @@ const Search: React.FC = () => {
 
         <label htmlFor="sqft">
           Sqft:
-          {' '}
-          <span>{filters.sqft}</span>
+          <span>
+            {filters.sqft}
+          </span>
         </label>
         <input
           type="range"
@@ -150,17 +146,19 @@ const Search: React.FC = () => {
       </form>
 
       <h2>
-        <strong>
-          Search Results
-        </strong>
+        <strong>Search Results</strong>
       </h2>
-      {filteredData.length > 0 ? (
-        filteredData.map((data) => (
-          <PropertyCard key={data.id} property={data} />
-        ))
-      ) : (
-        <p>No properties match the search criteria.</p>
-      )}
+      <Row key="search-row" xs={1} md={2} lg={3} className="g-4">
+        {filteredData.length > 0 ? (
+          filteredData.map((data: Property) => (
+            <Col>
+              <SearchPropertyCard key={data.id} property={data} />
+            </Col>
+          ))
+        ) : (
+          <p>No properties match the search criteria.</p>
+        )}
+      </Row>
     </div>
   );
 };

@@ -32,6 +32,7 @@ export const AddPropertySchema = Yup.object({
   bathrooms: Yup.number().positive().required(),
   sqft: Yup.number().positive().required(),
   landlord: Yup.string().required(),
+  images: Yup.string().required(),
 });
 
 export const EditPropertySchema = Yup.object({
@@ -43,4 +44,5 @@ export const EditPropertySchema = Yup.object({
   bathrooms: Yup.number().positive().required(),
   sqft: Yup.number().positive().required(),
   landlord: Yup.string().required(),
+  images: Yup.string().required(),
 });
