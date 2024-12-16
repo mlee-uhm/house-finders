@@ -43,7 +43,7 @@ const Home = async () => {
                 padding: '65px',
                 color: 'rgb(141, 164, 184)' }}
             >
-              <h1>Welcome to Your House Finding Journey</h1>
+              <h1 style={{ color: 'rgb(195, 209, 222)' }}>Welcome to Your House Finding Journey</h1>
               <h5>
                 <strong>
                   A housing finder website connects students seeking roommates with

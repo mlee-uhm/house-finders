@@ -46,27 +46,27 @@ export default async function PropertyPage({ params }: { params: TParam }) {
       </Row>
       <Row className="justify-content-center">
         <Col className="text-center">
-          <h2 style={{ color: 'green' }}>
+          <h2 style={{ color: 'rgb(141, 164, 184)' }}>
             $
             {property.price}
             /month
           </h2>
-          <h4>{property.address}</h4>
+          <h4 style={{ color: 'white' }}>{property.address}</h4>
         </Col>
         <Col className="text-center">
           <Container>
             <Row>
               <Col>
-                <h2><strong style={{ color: 'green' }}>{property.bedrooms}</strong></h2>
-                beds
+                <h2><strong style={{ color: 'rgb(141, 164, 184)' }}>{property.bedrooms}</strong></h2>
+                <span style={{ color: 'white' }}>beds</span>
               </Col>
               <Col>
-                <h2><strong style={{ color: 'green' }}>{property.bathrooms}</strong></h2>
-                baths
+                <h2><strong style={{ color: 'rgb(141, 164, 184)' }}>{property.bathrooms}</strong></h2>
+                <span style={{ color: 'white' }}>baths</span>
               </Col>
               <Col>
-                <h2><strong style={{ color: 'green' }}>{property.sqft}</strong></h2>
-                sqft
+                <h2><strong style={{ color: 'rgb(141, 164, 184)' }}>{property.sqft}</strong></h2>
+                <span style={{ color: 'white' }}>sqft</span>
               </Col>
             </Row>
           </Container>
@@ -78,11 +78,15 @@ export default async function PropertyPage({ params }: { params: TParam }) {
               width: '50%',
               backgroundColor: 'transparent',
               borderWidth: '2px',
-              borderColor: 'green',
+              borderColor: 'rgb(141, 164, 184)',
               textAlign: 'center',
             }}
           >
-            <div style={{ backgroundColor: 'green', color: 'white', padding: '10px', borderRadius: '5px' }}>
+            <div style={{ backgroundColor: 'rgb(141, 164, 184)',
+              color: 'white',
+              padding: '10px',
+              borderRadius: '5px' }}
+            >
               Contact Information:
               {' '}
               {landlord.email}

@@ -35,7 +35,10 @@ const EditPropertyForm = ({ property }: { property: Property }) => {
             <h2 style={{
               fontFamily: 'Merriweather, serif',
               fontSize: '50px',
-              color: 'rgb(141, 164, 184)' }}
+              color: 'rgb(141, 164, 184)',
+              marginTop: '20px', // Added margin-top for spacing
+              marginBottom: '20px', // Added margin-bottom for spacing
+            }}
             >
               <strong>Edit Property</strong>
             </h2>
