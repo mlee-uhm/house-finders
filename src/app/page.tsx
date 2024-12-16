@@ -41,8 +41,7 @@ const Home = async () => {
             <div
               style={{
                 padding: '65px',
-                color: 'black',
-                textShadow: '2px 2px 4px #F0E68C, -2px -2px 4px #F0E68C' }}
+                color: 'rgb(141, 164, 184)' }}
             >
               <h1>Welcome to Your House Finding Journey</h1>
               <h5>

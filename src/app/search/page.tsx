@@ -4,11 +4,16 @@ import React, { useState } from 'react';
 import { Condition, Property } from '@prisma/client';
 import SearchPropertyCard from '@/components/SearchPropertyCard';
 import { Row, Col } from 'react-bootstrap';
-import defaultData from '../../../config/settings.development.json';
+import { prisma } from '@/lib/prisma';
 
-const Search: React.FC = () => {
+const fetchProperties = async () => {
+  return await prisma.property.findMany();
+};
+
+const Search = ({ properties }: { properties: Property[] }) => {
+
   const [filters, setFilters] = useState({
-    condition: '' as keyof typeof Condition,
+    condition: null as keyof typeof Condition | null,
     price: 2000,
     bedrooms: 5,
     bathrooms: 5,
@@ -16,10 +21,10 @@ const Search: React.FC = () => {
   });
 
   const [filteredData, setFilteredData] = useState(
-    defaultData.defaultData.map((data, index) => ({ ...data, id: index, condition: data.condition as Condition })),
+    properties.map((data, index) => ({ ...data, id: index, condition: data.condition as Condition })),
   );
 
-  const uniqueConditions = Array.from(new Set(defaultData.defaultData.map((data) => data.condition)));
+  const uniqueConditions = Array.from(new Set(properties.map((data) => data.condition)));
 
   const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { id, value } = e.target;
@@ -31,7 +36,7 @@ const Search: React.FC = () => {
   };
 
   const handleSearch = () => {
-    const results = defaultData.defaultData
+    const results = properties
       .map((data, index) => ({
         ...data,
         id: index,
@@ -39,25 +44,29 @@ const Search: React.FC = () => {
       }))
       .filter(
         (data) => (filters.condition === null || data.condition === filters.condition)
-          && data.price <= filters.price
-          && data.bedrooms <= filters.bedrooms
-          && data.bathrooms <= filters.bathrooms
-          && data.sqft <= filters.sqft,
+        && data.price <= filters.price
+        && data.bedrooms <= filters.bedrooms
+        && data.bathrooms <= filters.bathrooms
+        && data.sqft <= filters.sqft,
       );
 
     setFilteredData(results);
   };
 
   return (
-    <div style={{ fontFamily: 'Merriweather, serif', color: 'black', textShadow: '0 0 5px rgb(189, 204, 120)' }}>
+    <div style={{ fontFamily: 'Merriweather, serif', color: 'black' }}>
       <h1>
         <strong>Search Properties</strong>
       </h1>
       <form onSubmit={(e) => e.preventDefault()}>
         {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
         <label htmlFor="condition">Condition:</label>
-        <select id="condition" value={filters.condition} onChange={handleFilterChange} aria-labelledby="condition">
-          <option value="">Any</option>
+        <select
+          id="condition"
+          value={filters.condition ?? ''}
+          onChange={handleFilterChange}
+          aria-labelledby="condition"
+        >
           {uniqueConditions.map((condition) => (
             <option key={condition} value={condition}>
               {condition}
@@ -159,8 +168,16 @@ const Search: React.FC = () => {
           <p>No properties match the search criteria.</p>
         )}
       </Row>
-    </div>
-  );
-};
+      </div>
+);
 
+
+export async function getServerSideProps() {
+  const properties = await fetchProperties();
+  return {
+    props: {
+      properties,
+    },
+  };
+}
 export default Search;

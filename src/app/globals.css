@@ -30,7 +30,7 @@ body {
   height: 135%;
   padding: 0;
   margin: 0;
-  background: fixed center url("/bg-23.png");
+  background: fixed center url("/background-blue.png");
   background-size: cover;
 }
 body .navbar {
