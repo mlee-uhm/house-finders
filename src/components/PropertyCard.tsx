@@ -15,7 +15,7 @@ const PropertyCard = ({ property }: { property: Property }) => {
   const conditionStyle = {
     AVAILABLE: { color: 'green' },
     UNAVAILABLE: { color: 'red' },
-    PENDING: { color: 'yellow' },
+    PENDING: { color: 'orange' },
   };
 
   return (
@@ -57,7 +57,7 @@ const PropertyCard = ({ property }: { property: Property }) => {
           {property.landlord}
         </Card.Footer>
         <div className="d-flex justify-content-between align-items-center">
-          <Card.Subtitle>
+          <Card.Subtitle style={{ marginBottom: '0.5rem', marginTop: '0.5rem' }}>
             {property.id}
           </Card.Subtitle>
           {isOwner && (
