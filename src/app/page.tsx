@@ -1,10 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable max-len */
 /* eslint-disable react/jsx-no-comment-textnodes */
-
-import { getServerSession } from 'next-auth';
-import { loggedInProtectedPage } from '@/lib/page-protection';
-import authOptions from '@/lib/authOptions';
 import { Col, Container, Row } from 'react-bootstrap';
 import { Property } from '@prisma/client';
 import PropertyCard from '@/components/PropertyCard';
@@ -12,22 +8,6 @@ import { prisma } from '@/lib/prisma';
 
 /** The Home page. */
 const Home = async () => {
-  // const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
-
-  // const toggleDropdown = (index: number) => {
-  //   setActiveDropdown(activeDropdown === index ? null : index);
-  // };
-
-  // Protect the page, only logged in users can access it.
-  const session = await getServerSession(authOptions);
-  loggedInProtectedPage(
-    session as {
-      user: { email: string; id: string; randomKey: string };
-      // eslint-disable-next-line @typescript-eslint/comma-dangle
-    } | null,
-  );
-
-  // const landlord = session?.user!.email ? session.user.email : '';
   const properties: Property[] = await prisma.property.findMany();
 
   const shuffledProperties = properties.sort(() => 0.5 - Math.random());

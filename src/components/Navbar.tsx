@@ -71,7 +71,7 @@ const NavBar: React.FC = () => {
                   href="/add"
                   key="add"
                   active={pathName === '/add'}
-                  style={{ marginRight: '25px' }}
+                  style={{ marginRight: '2px' }}
                   className="text-white"
                 >
                 Add Properties
@@ -98,7 +98,8 @@ const NavBar: React.FC = () => {
                 href="/admin"
                 key="admin"
                 active={pathName === '/admin'}
-                style={{ marginRight: '15px' }}
+                style={{ marginRight: '20px' }}
+                className="text-white"
               >
               Admin
               </Nav.Link>

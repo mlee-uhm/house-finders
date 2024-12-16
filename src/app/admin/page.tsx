@@ -23,7 +23,12 @@ const AdminPage = async () => {
       <Container id="list" fluid className="py-3">
         <Row>
           <Col>
-            <h1 className="text-center">List Contact Admin</h1>
+            <h1
+              className="text-center"
+              style={{ color: 'rgb(141, 164, 184)', marginBottom: '20px' }}
+            >
+              List Contact Admin
+            </h1>
             <Row>
               {admins.map((admin: User) => (
                 <Col key={admin.id + admin.role} md={4}>
@@ -31,7 +36,12 @@ const AdminPage = async () => {
                 </Col>
               ))}
             </Row>
-            <h1 className="text-center">List Contact Users</h1>
+            <h1
+              className="text-center"
+              style={{ color: 'rgb(141, 164, 184)', marginBottom: '20px' }}
+            >
+              List Contact Users
+            </h1>
             <Row>
               {nonAdmins.map((user: User) => (
                 <Col key={user.id + user.role} md={4}>
