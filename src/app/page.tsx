@@ -53,7 +53,7 @@ const Home = async () => {
                 </strong>
               </h5>
             </div>
-            <div className="container swiper d-flex justify-content-between">
+            <div className="container swiper d-flex justify-content-between" style={{ marginBottom: '50px' }}>
               {threeProps.map((property) => (
                 <PropertyCard key={property.id} property={property} />
               ))}
