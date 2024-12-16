@@ -13,7 +13,7 @@ export async function addStuff(stuff: { name: string; quantity: number; owner: s
   let condition: Condition = 'AVAILABLE';
   if (stuff.condition === 'PENDING') {
     condition = 'PENDING';
-  } else {
+  } else if (stuff.condition === 'UNAVAILABLE') {
     condition = 'UNAVAILABLE';
   }
   await prisma.stuff.create({
@@ -41,12 +41,12 @@ export async function addProperty(property: {
   bathrooms: number;
   sqft: number;
   landlord: string;
-  images: string[];
+  images: string;
 }) {
   let condition: Condition = 'AVAILABLE';
   if (property.condition === 'PENDING') {
     condition = 'PENDING';
-  } else {
+  } else if (property.condition === 'UNAVAILABLE') {
     condition = 'UNAVAILABLE';
   }
   await prisma.property.create({
