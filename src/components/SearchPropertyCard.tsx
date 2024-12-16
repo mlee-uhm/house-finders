@@ -25,7 +25,7 @@ const SearchPropertyCard = ({ property }: { property: Property }) => {
           $&nbsp;
           {property.price}
         </Card.Subtitle>
-        <Card.Text>
+        <Card.Text style={{ color: 'black' }}>
           Condition: &nbsp;
           <span style={conditionStyle[property.condition]}>{property.condition}</span>
           <br />
