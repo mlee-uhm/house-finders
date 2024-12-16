@@ -13,12 +13,12 @@ const Footer2 = () => (
       <div className="row mb-4">
         <div className="col-12 col-md-8">
           <nav className="footer-nav">
-            <a href="/about" className="text-white">About</a>
-            <a href="/support" className="text-white">Support</a>
-            <a href="/contact-us" className="text-white">Contact Us</a>
-            <a href="/press" className="text-white">Press</a>
-            <a href="/api" className="text-white">API</a>
-            <a href="/site-map" className="text-white">Site Map</a>
+            <button type="button" className="btn btn-link text-white">About</button>
+            <button type="button" className="btn btn-link text-white">Support</button>
+            <button type="button" className="btn btn-link text-white">Contact Us</button>
+            <button type="button" className="btn btn-link text-white">Press</button>
+            <button type="button" className="btn btn-link text-white">API</button>
+            <button type="button" className="btn btn-link text-white">Site Map</button>
           </nav>
         </div>
         <div className="col-12 col-md-4 text-md-end">

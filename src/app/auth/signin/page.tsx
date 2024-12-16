@@ -29,7 +29,7 @@ const SignIn = () => {
       <Container>
         <Row className="justify-content-center">
           <Col xs={5}>
-            <h1 className="text-center" style={{ color: 'white' }}>Sign In</h1>
+            <h1 className="text-center" style={{ color: 'white', marginTop: '20px' }}>Sign In</h1>
             <Card>
               <Card.Body>
                 <Form method="post" onSubmit={handleSubmit}>
