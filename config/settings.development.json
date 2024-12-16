@@ -7,11 +7,11 @@
   ],
 
   "defaultData": [
-    { "address": "1234 Elm St. Springfield HI USA, 62701", "price": 1000, "condition": "UNAVAILABLE", "bedrooms": 3, "bathrooms": 2, "sqft": 300, "landlord": "landlord@foo.com", "images": "https://jyrvjpy3hrd7xssz.public.blob.vercel-storage.com/placeholder-F7rvYy4D33KoyLdMUqjg65heObeIFE.png"},
-    { "address": "1435 Elm St. Springfield HI USA, 62701", "price": 3000, "condition": "UNAVAILABLE", "bedrooms": 2, "bathrooms": 1, "sqft": 200, "landlord": "landlord@foo.com", "images": "https://jyrvjpy3hrd7xssz.public.blob.vercel-storage.com/placeholder-F7rvYy4D33KoyLdMUqjg65heObeIFE.png"},
-    { "address": "5678 Oak St. Springfield HI USA, 62702", "price": 650, "condition": "PENDING", "bedrooms": 1, "bathrooms": 2, "sqft": 150, "landlord": "landlord@foo.com", "images": "https://jyrvjpy3hrd7xssz.public.blob.vercel-storage.com/placeholder-F7rvYy4D33KoyLdMUqjg65heObeIFE.png" },
-    { "address": "2345 Elk St. Springfield HI USA, 62703", "price": 800, "condition": "AVAILABLE", "bedrooms": 2, "bathrooms": 2, "sqft": 300, "landlord": "landlord@foo.com", "images": "https://jyrvjpy3hrd7xssz.public.blob.vercel-storage.com/placeholder-F7rvYy4D33KoyLdMUqjg65heObeIFE.png" },
-    { "address": "5421 Milk St. Springfield HI USA, 62704", "price": 800, "condition": "AVAILABLE", "bedrooms": 2, "bathrooms": 2, "sqft": 300, "landlord": "landlord@foo.com", "images": "https://jyrvjpy3hrd7xssz.public.blob.vercel-storage.com/placeholder-F7rvYy4D33KoyLdMUqjg65heObeIFE.png" }
+    { "address": "1234 Elm St. Springfield HI USA, 62701", "price": 1000, "condition": "UNAVAILABLE", "bedrooms": 3, "bathrooms": 2, "sqft": 300, "landlord": "landlord@foo.com", "images": "https://jyrvjpy3hrd7xssz.public.blob.vercel-storage.com/pexels-scottwebb-1029599-9wQOtTVHa42JagonT3s1BVmXge61DG.jpg"},
+    { "address": "1435 Elm St. Springfield HI USA, 62701", "price": 3000, "condition": "UNAVAILABLE", "bedrooms": 2, "bathrooms": 1, "sqft": 200, "landlord": "landlord@foo.com", "images": "https://jyrvjpy3hrd7xssz.public.blob.vercel-storage.com/pexels-photo-3555615-A3e1JgLs8P7bSfkeVu9aogd89sUb2l.webp"},
+    { "address": "5678 Oak St. Springfield HI USA, 62702", "price": 650, "condition": "PENDING", "bedrooms": 1, "bathrooms": 2, "sqft": 150, "landlord": "landlord@foo.com", "images": "https://jyrvjpy3hrd7xssz.public.blob.vercel-storage.com/pexels-kelly-1179532-2510067-ioBqxoahBEe9YXsDhw1vmEBsTkgd5s.jpg" },
+    { "address": "2345 Elk St. Springfield HI USA, 62703", "price": 800, "condition": "AVAILABLE", "bedrooms": 2, "bathrooms": 2, "sqft": 300, "landlord": "landlord@foo.com", "images": "https://jyrvjpy3hrd7xssz.public.blob.vercel-storage.com/R-HmroRXI515Oc9TVmf8DsKlp96IElPM.jpg" },
+    { "address": "5421 Milk St. Springfield HI USA, 62704", "price": 800, "condition": "AVAILABLE", "bedrooms": 2, "bathrooms": 2, "sqft": 300, "landlord": "landlord@foo.com", "images": "https://jyrvjpy3hrd7xssz.public.blob.vercel-storage.com/d49e6218507070436829acf2a36d37ec-818x545-bmVFTObLlK6r02pQP4trXwswjCXkIn.jpeg" }
   ]
 }
 
