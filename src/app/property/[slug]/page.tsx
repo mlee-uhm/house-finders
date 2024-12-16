@@ -6,7 +6,7 @@ import { loggedInProtectedPage } from '@/lib/page-protection';
 import { prisma } from '@/lib/prisma';
 import { Container, Row, Col, Card, Image } from 'react-bootstrap';
 
-type TParam = { slug: string[] };
+type TParam = Promise<{ slug: string[] }>;
 export default async function PropertyPage({ params }: { params: TParam }) {
   const session = await getServerSession(authOptions);
   loggedInProtectedPage(
