@@ -1,13 +1,14 @@
 'use client';
 
 import React from 'react';
+import '../app/globals.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Facebook, Twitter, Reddit, Instagram } from 'react-bootstrap-icons';
 
 import Image from 'next/image';
 
 const Footer2 = () => (
-  <footer className="footer bg-success text-white">
+  <footer className="footer text-white" style={{ backgroundColor: '#021627' }}>
     <div className="container">
       <div className="row mb-4">
         <div className="col-12 col-md-8">
@@ -21,15 +22,15 @@ const Footer2 = () => (
           </nav>
         </div>
         <div className="col-12 col-md-4 text-md-end">
-          <select className="language-select text-dark">
-            <option>English (US)</option>
+          <select className="language-select text-white" style={{ backgroundColor: '#021627' }}>
+            <option className="text-white">English (US)</option>
           </select>
         </div>
       </div>
       <hr className="border-white" />
       <div className="row">
         <div className="col-12 col-md-8">
-          <Image src="/HF_logo.png" alt="House Finders" width={80} height={68} className="footer-logo mb-3" />
+          <Image src="/HF_logo_dark.png" alt="House Finders" width={80} height={68} className="footer-logo mb-3" />
           <p className="footer-text text-white">© 2024 HouseFinders.inc</p>
           <p className="footer-text text-white">
             All trademarks referenced herein are the properties of their respective owners.
