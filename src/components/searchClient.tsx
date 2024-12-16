@@ -49,12 +49,22 @@ const Search = ({ properties }: { properties: Property[] }) => {
 
   return (
     <div style={{ fontFamily: 'Merriweather, serif', color: 'black' }}>
-      <h1>
+      <h1
+        style={{ fontFamily: 'Merriweather, serif',
+          fontSize: '40px',
+          color: 'rgb(141, 164, 184)',
+        }}
+      >
         <strong>Search Properties</strong>
       </h1>
       <form onSubmit={(e) => e.preventDefault()}>
         {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-        <label htmlFor="condition">Condition:</label>
+        <label
+          htmlFor="condition"
+          style={{ color: 'rgb(195, 209, 222)' }}
+        >
+          Condition:&nbsp;
+        </label>
         <select
           id="condition"
           value={filters.condition ?? ''}
@@ -70,8 +80,11 @@ const Search = ({ properties }: { properties: Property[] }) => {
         <br />
         <br />
 
-        <label htmlFor="price">
-          Price:
+        <label
+          htmlFor="price"
+          style={{ color: 'rgb(195, 209, 222)' }}
+        >
+          Price:&nbsp;
           <span>
             $
             {filters.price}
@@ -89,8 +102,11 @@ const Search = ({ properties }: { properties: Property[] }) => {
         <br />
         <br />
 
-        <label htmlFor="bedrooms">
-          Bedrooms:
+        <label
+          htmlFor="bedrooms"
+          style={{ color: 'rgb(195, 209, 222)' }}
+        >
+          Bedrooms:&nbsp;
           <span>{filters.bedrooms}</span>
         </label>
         <input
@@ -105,8 +121,11 @@ const Search = ({ properties }: { properties: Property[] }) => {
         <br />
         <br />
 
-        <label htmlFor="bathrooms">
-          Bathrooms:
+        <label
+          htmlFor="bathrooms"
+          style={{ color: 'rgb(195, 209, 222)' }}
+        >
+          Bathrooms:&nbsp;
           <span>{filters.bathrooms}</span>
         </label>
         <input
@@ -121,8 +140,11 @@ const Search = ({ properties }: { properties: Property[] }) => {
         <br />
         <br />
 
-        <label htmlFor="sqft">
-          Sqft:
+        <label
+          htmlFor="sqft"
+          style={{ color: 'rgb(195, 209, 222)' }}
+        >
+          Sqft:&nbsp;
           <span>{filters.sqft}</span>
         </label>
         <input
@@ -142,7 +164,12 @@ const Search = ({ properties }: { properties: Property[] }) => {
         </button>
       </form>
 
-      <h2>
+      <h2
+        style={{ fontFamily: 'Merriweather, serif',
+          fontSize: '40px',
+          color: 'rgb(141, 164, 184)',
+        }}
+      >
         <strong>Search Results</strong>
       </h2>
       <Row key="search-row" xs={1} md={2} lg={3} className="g-4">
